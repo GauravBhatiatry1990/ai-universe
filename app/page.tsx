@@ -2,11 +2,12 @@ import agents from '../data/agents.json';
 import AgentExplorer from '../components/AgentExplorer';
 import NewsletterSignup from '../components/NewsletterSignup';
 import AppShell from '../components/AppShell';
+import LivePulse from '../components/LivePulse';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <AppShell>
+    <AppShell rightRail={<LivePulse />}>
       <div className="px-4 lg:px-8 py-8 max-w-5xl mx-auto">
         {/* Hero */}
         <div className="mb-10">
@@ -39,11 +40,8 @@ export default function Home() {
           >
             🎯 Free vs Paid
           </Link>
-          <Link
-            href="/submit"
-            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 text-sm font-medium px-5 py-2 transition shadow-sm"
-          
         </div>
+
         {/* For tool owners */}
         <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-purple-50/60 via-white to-blue-50/60 p-6 mb-10">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
@@ -55,8 +53,8 @@ export default function Home() {
                 Built an AI tool? Get it in front of our audience.
               </h3>
               <p className="text-sm text-gray-600">
-                Free listing forever. Optional paid upgrade for featured placement
-                and a dofollow backlink.
+                Free listing forever. Optional paid upgrade for featured
+                placement and a dofollow backlink.
               </p>
             </div>
             <Link
