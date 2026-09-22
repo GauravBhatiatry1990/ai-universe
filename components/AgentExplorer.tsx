@@ -55,36 +55,36 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
     <>
       {/* Stats bar */}
       <div className="max-w-6xl mx-auto mb-6 flex items-center justify-between text-sm">
-        <div className="flex items-center gap-4 text-gray-400">
+        <div className="flex items-center gap-4 text-gray-600">
           <span>
-            <span className="font-semibold text-white">{agents.length}</span> tools
+            <span className="font-semibold text-gray-900">{agents.length}</span> tools
           </span>
-          <span className="text-white/20">·</span>
+          <span className="text-gray-300">·</span>
           <span>
-            <span className="font-semibold text-white">{categories.length - 1}</span>{" "}
+            <span className="font-semibold text-gray-900">{categories.length - 1}</span>{" "}
             categories
           </span>
-          <span className="text-white/20">·</span>
+          <span className="text-gray-300">·</span>
           <span>
-            <span className="font-semibold text-white">
+            <span className="font-semibold text-gray-900">
               {agents.filter((a) => a.featured).length}
             </span>{" "}
             featured
           </span>
         </div>
-        <span className="text-gray-500">Updated daily</span>
+        <span className="text-gray-400">Updated daily</span>
       </div>
 
       {/* Search */}
       <div className="max-w-6xl mx-auto mb-8 space-y-4">
         <div className="relative group">
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/40 via-blue-500/40 to-cyan-400/40 opacity-0 group-focus-within:opacity-100 blur transition" />
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-400/30 via-blue-400/30 to-cyan-400/30 opacity-0 group-focus-within:opacity-100 blur transition" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search AI tools by name, tagline, feature, or category..."
-            className="relative w-full rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur px-4 py-3 text-base text-white placeholder-gray-500 focus:border-purple-500/50 focus:outline-none transition"
+            className="relative w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 shadow-sm focus:border-purple-400 focus:outline-none transition"
           />
         </div>
 
@@ -99,8 +99,8 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
                 className={
                   "rounded-full px-4 py-1.5 text-sm font-medium transition " +
                   (active
-                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-lg shadow-purple-500/20"
-                    : "border border-white/10 bg-white/[0.03] text-gray-300 hover:bg-white/[0.06] hover:text-white")
+                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md shadow-purple-500/20"
+                    : "border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-300")
                 }
               >
                 {c}
@@ -109,7 +109,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
           })}
         </div>
 
-        {/* Count + category page link */}
+        {/* Count + category link */}
         <div className="flex items-center gap-3 flex-wrap text-sm">
           <span className="text-gray-500">
             {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
@@ -119,7 +119,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
           {category !== "All" && (
             <Link
               href={`/category/${slugify(category)}`}
-              className="text-purple-400 hover:text-purple-300 font-medium"
+              className="text-purple-600 hover:text-purple-700 font-medium"
             >
               Open category page →
             </Link>
@@ -135,54 +135,52 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
               key={agent.id}
               href={`/agent/${agent.slug}`}
               className={
-                "group relative rounded-2xl p-[1px] transition " +
+                "group relative rounded-2xl border p-6 flex flex-col transition " +
                 (agent.featured
-                  ? "bg-gradient-to-br from-amber-400/60 via-yellow-500/30 to-orange-500/40 hover:from-amber-400 hover:via-yellow-500/60 hover:to-orange-500/70"
-                  : "bg-white/[0.06] hover:bg-gradient-to-br hover:from-purple-500/50 hover:via-blue-500/50 hover:to-cyan-400/50")
+                  ? "bg-amber-50/40 border-amber-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-100"
+                  : "bg-white border-gray-200 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-100/50")
               }
             >
-              <div className="relative h-full rounded-2xl bg-[#0a0a0f] p-6 flex flex-col">
-                <div className="flex justify-between items-start mb-3 gap-2">
-                  <h2 className="text-xl font-semibold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-300 group-hover:to-cyan-300 group-hover:bg-clip-text transition">
-                    {agent.name}
-                  </h2>
-                  {agent.featured && (
-                    <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-black text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                      ★ Featured
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                  {agent.tagline}
-                </p>
-
-                {agent.features && agent.features.length > 0 && (
-                  <ul className="mb-4 space-y-1">
-                    {agent.features.slice(0, 2).map((f) => (
-                      <li
-                        key={f}
-                        className="flex items-start gap-2 text-xs text-gray-400"
-                      >
-                        <span className="text-cyan-400 mt-0.5">✓</span>
-                        <span className="line-clamp-1">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {agent.bestFor && (
-                  <p className="text-xs text-gray-500 italic mb-4 line-clamp-2">
-                    Best for: {agent.bestFor}
-                  </p>
-                )}
-
-                <div className="mt-auto flex items-center justify-between pt-2">
-                  <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 text-xs font-medium text-purple-300">
-                    {agent.category}
+              <div className="flex justify-between items-start mb-3 gap-2">
+                <h2 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition">
+                  {agent.name}
+                </h2>
+                {agent.featured && (
+                  <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                    ★ Featured
                   </span>
-                  <span className="text-xs text-gray-500">{agent.pricing}</span>
-                </div>
+                )}
+              </div>
+
+              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                {agent.tagline}
+              </p>
+
+              {agent.features && agent.features.length > 0 && (
+                <ul className="mb-4 space-y-1">
+                  {agent.features.slice(0, 2).map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-start gap-2 text-xs text-gray-600"
+                    >
+                      <span className="text-blue-500 mt-0.5">✓</span>
+                      <span className="line-clamp-1">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {agent.bestFor && (
+                <p className="text-xs text-gray-500 italic mb-4 line-clamp-2">
+                  Best for: {agent.bestFor}
+                </p>
+              )}
+
+              <div className="mt-auto flex items-center justify-between pt-2">
+                <span className="inline-block rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700">
+                  {agent.category}
+                </span>
+                <span className="text-xs text-gray-500">{agent.pricing}</span>
               </div>
             </Link>
           ))}
@@ -195,7 +193,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
               setQuery("");
               setCategory("All");
             }}
-            className="mt-4 text-purple-400 hover:text-purple-300 font-medium text-sm"
+            className="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm"
           >
             Clear filters
           </button>
