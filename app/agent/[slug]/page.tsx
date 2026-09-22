@@ -1,3 +1,4 @@
+import NewsletterSignup from '../../../components/NewsletterSignup';
 import agents from '../../../data/agents.json';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -177,6 +178,10 @@ export default async function AgentPage({
             </div>
           </div>
         )}
+        {/* Newsletter */}
+        <div className="mt-12">
+          <NewsletterSignup />
+        </div>
       </div>
     </main>
   );

@@ -1,5 +1,6 @@
 import agents from '../data/agents.json';
 import AgentExplorer from '../components/AgentExplorer';
+import NewsletterSignup from '../components/NewsletterSignup';
 import Link from 'next/link';
 
 export default function Home() {
@@ -16,9 +17,15 @@ export default function Home() {
             AI Universe
           </span>
         </h1>
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-6">
           Discover, compare, and choose the best AI agents and tools.
         </p>
+        <Link
+          href="/submit"
+          className="inline-block rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] text-gray-300 hover:text-white text-sm font-medium px-5 py-2 transition"
+        >
+          + Submit a Tool
+        </Link>
       </div>
 
       {/* Free vs Paid banner */}
@@ -48,6 +55,11 @@ export default function Home() {
 
       {/* Search + Grid */}
       <AgentExplorer agents={agents} />
+
+      {/* Newsletter */}
+      <div className="max-w-3xl mx-auto mt-16">
+        <NewsletterSignup />
+      </div>
     </main>
   );
 }
