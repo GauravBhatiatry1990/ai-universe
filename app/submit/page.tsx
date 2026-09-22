@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function SubmitPage() {
   // ⚠️ REPLACE with your real email before pushing
-  const FORM_EMAIL = "gauravbhatiatry1990@gmail.com";
+  const FORM_EMAIL = "gauravbhatia2190@gmail.com";
   const FORM_ACTION = `https://formsubmit.co/${FORM_EMAIL}`;
 
   return (
