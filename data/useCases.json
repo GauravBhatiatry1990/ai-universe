@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "slug": "chat-with-ai",
+    "title": "Chat with AI",
+    "icon": "💬",
+    "description": "General-purpose AI assistant for questions, writing, and thinking.",
+    "freePicks": ["deepseek", "gemini", "meta-ai"],
+    "paidPicks": ["chatgpt", "claude", "perplexity"],
+    "verdict": "Start with DeepSeek — genuinely free and rivals ChatGPT for most everyday tasks. Upgrade to ChatGPT Plus or Claude Pro only if you need advanced reasoning, plugins, or heavy daily use."
+  },
+  {
+    "id": 2,
+    "slug": "write-code",
+    "title": "Write Code",
+    "icon": "💻",
+    "description": "AI pair programmer for writing, editing, and reviewing code.",
+    "freePicks": ["deepseek", "gemini"],
+    "paidPicks": ["cursor", "claude-code", "github-copilot"],
+    "verdict": "GitHub Copilot has a free tier for individuals but its best features need Pro ($10/mo). For a fully free setup, use DeepSeek's API with any editor. Cursor Pro ($20/mo) is worth it if you code daily and want agentic multi-file edits."
+  },
+  {
+    "id": 3,
+    "slug": "autonomous-coding",
+    "title": "Autonomous Coding Agent",
+    "icon": "🤖",
+    "description": "Delegate entire tickets or refactors to an AI that plans and executes.",
+    "freePicks": ["deepseek"],
+    "paidPicks": ["openai-codex", "claude-code", "cursor"],
+    "verdict": "No true free option for full autonomous coding yet. DeepSeek can plan and write code in chat, but real autonomy needs Claude Code or OpenAI Codex ($20/mo)."
+  },
+  {
+    "id": 4,
+    "slug": "generate-images",
+    "title": "Generate Images",
+    "icon": "🎨",
+    "description": "Create images, artwork, and graphics from text prompts.",
+    "freePicks": ["nano-banana", "dall-e"],
+    "paidPicks": ["midjourney", "leonardo-ai", "adobe-firefly"],
+    "verdict": "Nano Banana (free in Gemini) beats most paid tools on editing and accuracy. Midjourney ($10/mo) wins on pure aesthetic quality — worth it for designers and content creators."
+  },
+  {
+    "id": 5,
+    "slug": "generate-video",
+    "title": "Generate Video",
+    "icon": "🎬",
+    "description": "Create AI video clips from text or images.",
+    "freePicks": ["kling", "luma-dream-machine"],
+    "paidPicks": ["sora", "veo", "runway"],
+    "verdict": "Kling and Luma have generous free tiers for short clips. For production work, Veo 3.1 ($20/mo Google AI Pro) has the best quality + native audio. Sora comes bundled with ChatGPT Plus."
+  },
+  {
+    "id": 6,
+    "slug": "voice-generation",
+    "title": "Voice & Voiceovers",
+    "icon": "🎙️",
+    "description": "Generate realistic AI voices for videos, podcasts, and audio.",
+    "freePicks": ["murf-ai"],
+    "paidPicks": ["elevenlabs", "murf-ai"],
+    "verdict": "Murf AI has a usable free tier for hobby projects. ElevenLabs Starter at $5/mo is the cheapest quality upgrade in all of AI — worth it the moment you need commercial rights."
+  },
+  {
+    "id": 7,
+    "slug": "music-generation",
+    "title": "Music Generation",
+    "icon": "🎵",
+    "description": "Generate songs, instrumentals, and background music.",
+    "freePicks": ["suno"],
+    "paidPicks": ["suno", "udio"],
+    "verdict": "Suno free tier is generous for personal use (no commercial rights). For commercial music, Suno Pro ($10/mo). Udio is better for producers who want granular stem control."
+  },
+  {
+    "id": 8,
+    "slug": "writing-content",
+    "title": "Writing & Content",
+    "icon": "✍️",
+    "description": "Long-form writing, marketing copy, and editing.",
+    "freePicks": ["chatgpt", "claude", "grammarly"],
+    "paidPicks": ["jasper", "copy-ai", "surfer-seo"],
+    "verdict": "ChatGPT, Claude, and Grammarly free tiers cover 80% of writing tasks. Pay for Jasper/Copy.ai only if you're a marketing team producing content at scale. Surfer SEO is worth it if organic search is your main traffic channel."
+  },
+  {
+    "id": 9,
+    "slug": "research-papers",
+    "title": "Research & Papers",
+    "icon": "🔬",
+    "description": "Search academic papers and get evidence-backed answers.",
+    "freePicks": ["notebooklm", "consensus"],
+    "paidPicks": ["perplexity", "elicit"],
+    "verdict": "NotebookLM is free and unbeatable for analyzing documents you upload. Consensus free tier is fine for casual academic questions. Perplexity Pro ($20/mo) is worth it for researchers doing daily live web research."
+  },
+  {
+    "id": 10,
+    "slug": "presentations",
+    "title": "Presentations & Decks",
+    "icon": "📊",
+    "description": "Generate slide decks and pitch presentations quickly.",
+    "freePicks": ["gamma"],
+    "paidPicks": ["gamma", "beautiful-ai"],
+    "verdict": "Gamma free tier creates impressive decks with Gamma branding. Gamma Plus ($10/mo) removes branding and unlocks premium templates. Beautiful.ai is better for corporate brand consistency."
+  },
+  {
+    "id": 11,
+    "slug": "build-website",
+    "title": "Build a Website",
+    "icon": "🌐",
+    "description": "Generate full-stack web apps from a description.",
+    "freePicks": ["bolt-new", "lovable"],
+    "paidPicks": ["lovable", "replit-agent"],
+    "verdict": "Bolt.new and Lovable free tiers can ship small MVPs. For real projects, Lovable Pro ($25/mo) or Replit Core ($25/mo) — both are cheaper than hiring a developer."
+  },
+  {
+    "id": 12,
+    "slug": "automate-workflows",
+    "title": "Automate Workflows",
+    "icon": "⚙️",
+    "description": "Connect apps and automate repetitive tasks.",
+    "freePicks": ["zapier"],
+    "paidPicks": ["zapier", "manus-ai"],
+    "verdict": "Zapier free tier handles basic automations. Pay for Professional ($20/mo) when you hit task limits. Manus AI is worth it for complex autonomous multi-step workflows."
+  },
+  {
+    "id": 13,
+    "slug": "note-taking",
+    "title": "Note-Taking",
+    "icon": "📝",
+    "description": "Capture, organize, and query your notes with AI.",
+    "freePicks": ["notebooklm"],
+    "paidPicks": ["reflect", "notion-ai"],
+    "verdict": "NotebookLM is free and incredible for research notes. Notion AI ($10/mo) is worth it if you're already in Notion. Reflect is best for a personal second brain."
+  }
+]
