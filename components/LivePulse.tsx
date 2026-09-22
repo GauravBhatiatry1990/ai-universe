@@ -30,26 +30,42 @@ const UPDATES: UpdateItem[] = [
   { text: 'Mistral launched Le Chat Pro with canvas mode', time: '12h ago', icon: '🟡' },
 ];
 
-function Sparkline({ percent }: { percent: number }) {
+function Sparkline({ percent, seed }: { percent: number; seed: number }) {
+  const width = 48;
+  const height = 22;
+  const baseY = height / 2;
+  const amplitude = 6;
+
   const points: string[] = [];
-  const base = 30 - percent * 0.5;
   for (let i = 0; i < 12; i++) {
-    const y = base + Math.sin(i * 0.9 + percent) * 4;
-    points.push(`${i * 4},${Math.max(2, Math.min(20, y))}`);
+    const wave =
+      Math.sin(i * 0.7 + seed * 1.3) * amplitude +
+      Math.cos(i * 0.4 + seed) * (amplitude * 0.4);
+    const trend = (i / 11) * (percent / 4);
+    const y = baseY - wave - trend;
+    points.push(`${(i * width) / 11},${y.toFixed(1)}`);
   }
+
   const path = `M${points.join(' L')}`;
+  const gradId = `sparkGrad-${seed}`;
+
   return (
-    <svg width="48" height="22" viewBox="0 0 48 22" className="shrink-0">
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      className="shrink-0"
+    >
       <path
         d={path}
         fill="none"
-        stroke="url(#sparkGrad)"
+        stroke={`url(#${gradId})`}
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <defs>
-        <linearGradient id="sparkGrad" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#a855f7" />
           <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
@@ -82,7 +98,7 @@ export default function LivePulse() {
             <Link
               key={tool.slug}
               href={`/agent/${tool.slug}`}
-              className="flex items-center gap-3 py-1.5 group"
+              className="flex items-center gap-2 py-1.5 group"
             >
               <span className="w-4 text-xs font-bold text-gray-400">
                 {i + 1}
@@ -95,8 +111,8 @@ export default function LivePulse() {
                   {tool.category}
                 </div>
               </div>
-              <Sparkline percent={tool.percent} />
-              <span className="text-[10px] font-semibold text-green-600 shrink-0">
+              <Sparkline percent={tool.percent} seed={i + 1} />
+              <span className="text-[10px] font-semibold text-green-600 shrink-0 w-10 text-right">
                 ▲{tool.percent}%
               </span>
             </Link>

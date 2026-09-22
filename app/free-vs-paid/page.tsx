@@ -27,24 +27,24 @@ export default function FreeVsPaidPage() {
   const findAgent = (slug: string) => allAgents.find((a) => a.slug === slug);
 
   return (
-    <main className="min-h-screen p-8">
+    <main className="min-h-screen p-8 bg-gray-50">
       <div className="max-w-5xl mx-auto">
         <Link
           href="/"
-          className="text-purple-400 hover:text-purple-300 text-sm font-medium inline-block mb-6"
+          className="text-purple-600 hover:text-purple-700 text-sm font-medium inline-block mb-6"
         >
           ← Back to all tools
         </Link>
 
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-green-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-500 via-cyan-500 to-purple-600 bg-clip-text text-transparent">
               Free vs Paid AI
             </span>
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            For every AI task, here's the free tool you can start with today —
-            and when it's worth paying.
+          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+            For every AI task, here&apos;s the free tool you can start with
+            today — and when it&apos;s worth paying.
           </p>
         </div>
 
@@ -52,17 +52,17 @@ export default function FreeVsPaidPage() {
           {cases.map((uc) => (
             <div
               key={uc.slug}
-              className="rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur overflow-hidden"
+              className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden"
             >
               {/* Header */}
-              <div className="bg-gradient-to-r from-purple-500/[0.08] to-blue-500/[0.08] px-6 py-5 border-b border-white/10">
+              <div className="bg-gradient-to-r from-purple-50 to-blue-50 px-6 py-5 border-b border-gray-100">
                 <div className="flex items-center gap-3">
                   <span className="text-3xl">{uc.icon}</span>
                   <div>
-                    <h2 className="text-2xl font-semibold text-white">
+                    <h2 className="text-2xl font-semibold text-gray-900">
                       {uc.title}
                     </h2>
-                    <p className="text-sm text-gray-400">{uc.description}</p>
+                    <p className="text-sm text-gray-600">{uc.description}</p>
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@ export default function FreeVsPaidPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-lg">🆓</span>
-                    <h3 className="font-semibold text-green-400">
+                    <h3 className="font-semibold text-green-700">
                       Free Options
                     </h3>
                   </div>
@@ -85,17 +85,17 @@ export default function FreeVsPaidPage() {
                         <Link
                           key={slug}
                           href={`/agent/${agent.slug}`}
-                          className="block rounded-lg border border-green-500/20 bg-green-500/[0.04] p-3 hover:border-green-500/50 hover:bg-green-500/[0.08] transition"
+                          className="block rounded-lg border border-green-200 bg-green-50/60 p-3 hover:border-green-400 hover:bg-green-50 transition"
                         >
                           <div className="flex justify-between items-start gap-2">
-                            <span className="font-medium text-white text-sm">
+                            <span className="font-medium text-gray-900 text-sm">
                               {agent.name}
                             </span>
-                            <span className="text-xs text-green-400 whitespace-nowrap">
+                            <span className="text-xs text-green-700 font-medium whitespace-nowrap">
                               {agent.pricing}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                          <p className="text-xs text-gray-600 mt-1 line-clamp-2">
                             {agent.tagline}
                           </p>
                         </Link>
@@ -108,7 +108,7 @@ export default function FreeVsPaidPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-lg">💎</span>
-                    <h3 className="font-semibold text-purple-400">
+                    <h3 className="font-semibold text-purple-700">
                       Premium Options
                     </h3>
                   </div>
@@ -120,17 +120,17 @@ export default function FreeVsPaidPage() {
                         <Link
                           key={slug}
                           href={`/agent/${agent.slug}`}
-                          className="block rounded-lg border border-purple-500/20 bg-purple-500/[0.04] p-3 hover:border-purple-500/50 hover:bg-purple-500/[0.08] transition"
+                          className="block rounded-lg border border-purple-200 bg-purple-50/60 p-3 hover:border-purple-400 hover:bg-purple-50 transition"
                         >
                           <div className="flex justify-between items-start gap-2">
-                            <span className="font-medium text-white text-sm">
+                            <span className="font-medium text-gray-900 text-sm">
                               {agent.name}
                             </span>
-                            <span className="text-xs text-purple-400 whitespace-nowrap">
+                            <span className="text-xs text-purple-700 font-medium whitespace-nowrap">
                               {agent.pricing}
                             </span>
                           </div>
-                          <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                          <p className="text-xs text-gray-600 mt-1 line-clamp-2">
                             {agent.tagline}
                           </p>
                         </Link>
@@ -141,9 +141,11 @@ export default function FreeVsPaidPage() {
               </div>
 
               {/* Verdict */}
-              <div className="border-t border-white/10 bg-white/[0.02] px-6 py-4">
-                <p className="text-sm text-gray-300">
-                  <span className="font-semibold text-white">Our take: </span>
+              <div className="border-t border-gray-100 bg-gray-50 px-6 py-4">
+                <p className="text-sm text-gray-700">
+                  <span className="font-semibold text-gray-900">
+                    Our take:{' '}
+                  </span>
                   {uc.verdict}
                 </p>
               </div>
