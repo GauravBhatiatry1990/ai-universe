@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { getLogoUrl } from '../data/toolDomains';
 
 function slugify(str: string): string {
   return str
@@ -54,7 +55,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
   return (
     <>
       {/* Stats bar */}
-      <div className="max-w-6xl mx-auto mb-6 flex items-center justify-between text-sm">
+      <div className="mb-6 flex items-center justify-between text-sm">
         <div className="flex items-center gap-4 text-gray-600">
           <span>
             <span className="font-semibold text-gray-900">{agents.length}</span> tools
@@ -76,7 +77,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
       </div>
 
       {/* Search */}
-      <div className="max-w-6xl mx-auto mb-8 space-y-4">
+      <div className="mb-8 space-y-4">
         <div className="relative group">
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-400/30 via-blue-400/30 to-cyan-400/30 opacity-0 group-focus-within:opacity-100 blur transition" />
           <input
@@ -129,64 +130,81 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
 
       {/* Grid */}
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-          {filtered.map((agent) => (
-            <Link
-              key={agent.id}
-              href={`/agent/${agent.slug}`}
-              className={
-                "group relative rounded-2xl border p-6 flex flex-col transition " +
-                (agent.featured
-                  ? "bg-amber-50/40 border-amber-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-100"
-                  : "bg-white border-gray-200 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-100/50")
-              }
-            >
-              <div className="flex justify-between items-start mb-3 gap-2">
-                <h2 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition">
-                  {agent.name}
-                </h2>
-                {agent.featured && (
-                  <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                    ★ Featured
-                  </span>
-                )}
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {filtered.map((agent) => {
+            const logoUrl = getLogoUrl(agent.slug);
+            return (
+              <Link
+                key={agent.id}
+                href={`/agent/${agent.slug}`}
+                className={
+                  "group relative rounded-2xl border p-6 flex flex-col transition " +
+                  (agent.featured
+                    ? "bg-amber-50/40 border-amber-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-100"
+                    : "bg-white border-gray-200 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-100/50")
+                }
+              >
+                <div className="flex justify-between items-start mb-3 gap-2">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    {logoUrl && (
+                      <img
+                        src={logoUrl}
+                        alt=""
+                        width={28}
+                        height={28}
+                        className="rounded-md shrink-0 bg-white object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    )}
+                    <h2 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition truncate">
+                      {agent.name}
+                    </h2>
+                  </div>
+                  {agent.featured && (
+                    <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                      ★ Featured
+                    </span>
+                  )}
+                </div>
 
-              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                {agent.tagline}
-              </p>
-
-              {agent.features && agent.features.length > 0 && (
-                <ul className="mb-4 space-y-1">
-                  {agent.features.slice(0, 2).map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-2 text-xs text-gray-600"
-                    >
-                      <span className="text-blue-500 mt-0.5">✓</span>
-                      <span className="line-clamp-1">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {agent.bestFor && (
-                <p className="text-xs text-gray-500 italic mb-4 line-clamp-2">
-                  Best for: {agent.bestFor}
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                  {agent.tagline}
                 </p>
-              )}
 
-              <div className="mt-auto flex items-center justify-between pt-2">
-                <span className="inline-block rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700">
-                  {agent.category}
-                </span>
-                <span className="text-xs text-gray-500">{agent.pricing}</span>
-              </div>
-            </Link>
-          ))}
+                {agent.features && agent.features.length > 0 && (
+                  <ul className="mb-4 space-y-1">
+                    {agent.features.slice(0, 2).map((f) => (
+                      <li
+                        key={f}
+                        className="flex items-start gap-2 text-xs text-gray-600"
+                      >
+                        <span className="text-blue-500 mt-0.5">✓</span>
+                        <span className="line-clamp-1">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {agent.bestFor && (
+                  <p className="text-xs text-gray-500 italic mb-4 line-clamp-2">
+                    Best for: {agent.bestFor}
+                  </p>
+                )}
+
+                <div className="mt-auto flex items-center justify-between pt-2">
+                  <span className="inline-block rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700">
+                    {agent.category}
+                  </span>
+                  <span className="text-xs text-gray-500">{agent.pricing}</span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       ) : (
-        <div className="max-w-6xl mx-auto py-16 text-center">
+        <div className="py-16 text-center">
           <p className="text-gray-500 text-lg">No tools match your search.</p>
           <button
             onClick={() => {
