@@ -1,416 +1,48 @@
 [
-  {
-    "id": 1,
-    "slug": "chatgpt",
-    "name": "ChatGPT",
-    "tagline": "OpenAI's flagship assistant with GPT-5.6, vision, voice, and deep reasoning.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / Plus $20/mo",
-    "featured": true
-  },
-  {
-    "id": 2,
-    "slug": "claude",
-    "name": "Claude",
-    "tagline": "Anthropic's assistant known for long-context reasoning and safe, thoughtful outputs.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / Pro $20/mo",
-    "featured": true
-  },
-  {
-    "id": 3,
-    "slug": "gemini",
-    "name": "Gemini",
-    "tagline": "Google's multimodal assistant deeply integrated with Search, Workspace, and Android.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / Advanced $20/mo",
-    "featured": true
-  },
-  {
-    "id": 4,
-    "slug": "deepseek",
-    "name": "DeepSeek",
-    "tagline": "Open-weight LLM with 1M token context, strong coding, and agent capabilities.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / API pay-as-you-go",
-    "featured": true
-  },
-  {
-    "id": 5,
-    "slug": "perplexity",
-    "name": "Perplexity",
-    "tagline": "AI answer engine with real-time citations and agentic research via Comet browser.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / Pro $20/mo",
-    "featured": true
-  },
-  {
-    "id": 6,
-    "slug": "grok",
-    "name": "Grok",
-    "tagline": "xAI's real-time chatbot with live X data and a sharp, unfiltered personality.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / Premium+ $30/mo",
-    "featured": false
-  },
-  {
-    "id": 7,
-    "slug": "mistral-le-chat",
-    "name": "Mistral Le Chat",
-    "tagline": "European frontier assistant with fast inference and strong multilingual support.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / Pro $14.99/mo",
-    "featured": false
-  },
-  {
-    "id": 8,
-    "slug": "qwen",
-    "name": "Qwen",
-    "tagline": "Alibaba's open-weight model family with top-tier multilingual and reasoning scores.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / API pricing",
-    "featured": false
-  },
-  {
-    "id": 9,
-    "slug": "kimi",
-    "name": "Kimi",
-    "tagline": "Moonshot AI's long-context assistant built for research and document analysis.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free / API pricing",
-    "featured": false
-  },
-  {
-    "id": 10,
-    "slug": "meta-ai",
-    "name": "Meta AI",
-    "tagline": "Free assistant baked into WhatsApp, Instagram, and Messenger.",
-    "category": "Chatbots & LLMs",
-    "pricing": "Free",
-    "featured": false
-  },
-  {
-    "id": 11,
-    "slug": "github-copilot",
-    "name": "GitHub Copilot",
-    "tagline": "AI pair programmer with inline completions, chat, and agent mode in your IDE.",
-    "category": "Coding",
-    "pricing": "Free / Pro $10/mo",
-    "featured": false
-  },
-  {
-    "id": 12,
-    "slug": "cursor",
-    "name": "Cursor",
-    "tagline": "AI-first code editor with codebase-wide context and multi-file agent edits.",
-    "category": "Coding",
-    "pricing": "Free / Pro $20/mo",
-    "featured": true
-  },
-  {
-    "id": 13,
-    "slug": "claude-code",
-    "name": "Claude Code",
-    "tagline": "Anthropic's terminal-based coding agent that plans, edits, and runs tests autonomously.",
-    "category": "Coding",
-    "pricing": "$20/mo (Pro) / API",
-    "featured": false
-  },
-  {
-    "id": 14,
-    "slug": "openai-codex",
-    "name": "OpenAI Codex",
-    "tagline": "Cloud coding agent hitting 85.5% on SWE-bench Verified — autonomous PR generation.",
-    "category": "Coding",
-    "pricing": "Included with ChatGPT Plus / API",
-    "featured": false
-  },
-  {
-    "id": 15,
-    "slug": "replit-agent",
-    "name": "Replit Agent",
-    "tagline": "Describe an app, get a deployed full-stack project — no local setup needed.",
-    "category": "Coding",
-    "pricing": "Free / Core $25/mo",
-    "featured": false
-  },
-  {
-    "id": 16,
-    "slug": "windsurf",
-    "name": "Windsurf",
-    "tagline": "Agentic IDE with Cascade flows that keep deep context across your entire project.",
-    "category": "Coding",
-    "pricing": "Free / Pro $15/mo",
-    "featured": false
-  },
-  {
-    "id": 17,
-    "slug": "midjourney",
-    "name": "Midjourney",
-    "tagline": "The gold standard for AI image aesthetics — cinematic, stylized, and consistent.",
-    "category": "Image",
-    "pricing": "$10/mo",
-    "featured": true
-  },
-  {
-    "id": 18,
-    "slug": "nano-banana",
-    "name": "Nano Banana",
-    "tagline": "Google's top-ranked image model with industry-leading editing and consistency.",
-    "category": "Image",
-    "pricing": "Free (in Gemini) / API",
-    "featured": false
-  },
-  {
-    "id": 19,
-    "slug": "dall-e",
-    "name": "DALL·E",
-    "tagline": "OpenAI's image model with strong prompt adherence and inpainting built into ChatGPT.",
-    "category": "Image",
-    "pricing": "Included with ChatGPT Plus / API",
-    "featured": false
-  },
-  {
-    "id": 20,
-    "slug": "adobe-firefly",
-    "name": "Adobe Firefly",
-    "tagline": "Commercially safe image generation natively integrated into Photoshop and Creative Cloud.",
-    "category": "Image",
-    "pricing": "Free / Premium $9.99/mo",
-    "featured": false
-  },
-  {
-    "id": 21,
-    "slug": "leonardo-ai",
-    "name": "Leonardo AI",
-    "tagline": "Fine-tuned image generation for game art, concept design, and production pipelines.",
-    "category": "Image",
-    "pricing": "Free / Apprentice $12/mo",
-    "featured": false
-  },
-  {
-    "id": 22,
-    "slug": "sora",
-    "name": "Sora",
-    "tagline": "OpenAI's text-to-video model with cinematic quality and scene-level control.",
-    "category": "Video",
-    "pricing": "ChatGPT Plus / Pro",
-    "featured": true
-  },
-  {
-    "id": 23,
-    "slug": "veo",
-    "name": "Veo 3.1",
-    "tagline": "Google's flagship video model producing 4K clips with native synchronized audio.",
-    "category": "Video",
-    "pricing": "Google AI Pro $19.99/mo",
-    "featured": false
-  },
-  {
-    "id": 24,
-    "slug": "runway",
-    "name": "Runway",
-    "tagline": "Professional AI video suite with Gen-4, motion brush, and full editing tools.",
-    "category": "Video",
-    "pricing": "Free / Standard $15/mo",
-    "featured": false
-  },
-  {
-    "id": 25,
-    "slug": "kling",
-    "name": "Kling",
-    "tagline": "Kuaishou's video model delivering up to 120-second clips with smooth motion.",
-    "category": "Video",
-    "pricing": "Free / Standard $10/mo",
-    "featured": false
-  },
-  {
-    "id": 26,
-    "slug": "luma-dream-machine",
-    "name": "Luma Dream Machine",
-    "tagline": "Fast, dreamlike text-to-video with strong camera control and image-to-video.",
-    "category": "Video",
-    "pricing": "Free / Lite $9.99/mo",
-    "featured": false
-  },
-  {
-    "id": 27,
-    "slug": "elevenlabs",
-    "name": "ElevenLabs",
-    "tagline": "Industry-leading AI voice generation, cloning, and dubbing in 30+ languages.",
-    "category": "Audio",
-    "pricing": "Free / Starter $5/mo",
-    "featured": true
-  },
-  {
-    "id": 28,
-    "slug": "suno",
-    "name": "Suno",
-    "tagline": "Generate full songs — vocals, lyrics, and instruments — from a single prompt.",
-    "category": "Audio",
-    "pricing": "Free / Pro $10/mo",
-    "featured": false
-  },
-  {
-    "id": 29,
-    "slug": "udio",
-    "name": "Udio",
-    "tagline": "High-fidelity music generation with fine control over stems, style, and structure.",
-    "category": "Audio",
-    "pricing": "Free / Standard $10/mo",
-    "featured": false
-  },
-  {
-    "id": 30,
-    "slug": "murf-ai",
-    "name": "Murf AI",
-    "tagline": "Studio-quality AI voiceovers for videos, e-learning, and ads.",
-    "category": "Audio",
-    "pricing": "Free / Creator $19/mo",
-    "featured": false
-  },
-  {
-    "id": 31,
-    "slug": "jasper",
-    "name": "Jasper",
-    "tagline": "Marketing-focused AI writer that keeps content on-brand across every channel.",
-    "category": "Writing",
-    "pricing": "Creator $39/mo",
-    "featured": false
-  },
-  {
-    "id": 32,
-    "slug": "grammarly",
-    "name": "Grammarly",
-    "tagline": "AI writing partner with grammar, tone, rewrites, and generative drafting built in.",
-    "category": "Writing",
-    "pricing": "Free / Pro $12/mo",
-    "featured": false
-  },
-  {
-    "id": 33,
-    "slug": "copy-ai",
-    "name": "Copy.ai",
-    "tagline": "GTM AI platform that automates sales and marketing copy at scale.",
-    "category": "Writing",
-    "pricing": "Free / Pro $49/mo",
-    "featured": false
-  },
-  {
-    "id": 34,
-    "slug": "surfer-seo",
-    "name": "Surfer SEO",
-    "tagline": "AI content optimization with real-time SERP scoring and topical outlines.",
-    "category": "Writing",
-    "pricing": "Essential $79/mo",
-    "featured": false
-  },
-  {
-    "id": 35,
-    "slug": "notion-ai",
-    "name": "Notion AI",
-    "tagline": "AI-native workspace that writes, summarizes, and searches across all your docs.",
-    "category": "Productivity",
-    "pricing": "$10/mo add-on",
-    "featured": true
-  },
-  {
-    "id": 36,
-    "slug": "manus-ai",
-    "name": "Manus AI",
-    "tagline": "General-purpose autonomous agent that plans and executes multi-step tasks end-to-end.",
-    "category": "Productivity",
-    "pricing": "Free / Pro $19/mo",
-    "featured": false
-  },
-  {
-    "id": 37,
-    "slug": "microsoft-365-copilot",
-    "name": "Microsoft 365 Copilot",
-    "tagline": "AI embedded across Word, Excel, Outlook, and Teams for enterprise workflows.",
-    "category": "Productivity",
-    "pricing": "$30/user/mo",
-    "featured": false
-  },
-  {
-    "id": 38,
-    "slug": "zapier",
-    "name": "Zapier",
-    "tagline": "Connect 7,000+ apps and automate workflows with AI-powered agents.",
-    "category": "Productivity",
-    "pricing": "Free / Professional $19.99/mo",
-    "featured": false
-  },
-  {
-    "id": 39,
-    "slug": "elicit",
-    "name": "Elicit",
-    "tagline": "AI research assistant that finds, summarizes, and extracts data from papers.",
-    "category": "Research",
-    "pricing": "Free / Plus $12/mo",
-    "featured": false
-  },
-  {
-    "id": 40,
-    "slug": "consensus",
-    "name": "Consensus",
-    "tagline": "Search 200M+ academic papers and get evidence-backed answers with citations.",
-    "category": "Research",
-    "pricing": "Free / Premium $8.99/mo",
-    "featured": false
-  },
-  {
-    "id": 41,
-    "slug": "gamma",
-    "name": "Gamma",
-    "tagline": "Generate polished presentations, docs, and sites from a single prompt.",
-    "category": "Presentations",
-    "pricing": "Free / Plus $10/mo",
-    "featured": false
-  },
-  {
-    "id": 42,
-    "slug": "beautiful-ai",
-    "name": "Beautiful.ai",
-    "tagline": "Smart slide templates that auto-format as you type — no design skills needed.",
-    "category": "Presentations",
-    "pricing": "Pro $12/mo",
-    "featured": false
-  },
-  {
-    "id": 43,
-    "slug": "lovable",
-    "name": "Lovable",
-    "tagline": "Describe an app in plain English and get a full-stack web product deployed.",
-    "category": "Website Builders",
-    "pricing": "Free / Pro $25/mo",
-    "featured": false
-  },
-  {
-    "id": 44,
-    "slug": "bolt-new",
-    "name": "Bolt.new",
-    "tagline": "In-browser AI dev environment that builds, runs, and deploys full-stack apps.",
-    "category": "Website Builders",
-    "pricing": "Free / Pro $20/mo",
-    "featured": false
-  },
-  {
-    "id": 45,
-    "slug": "notebooklm",
-    "name": "Google NotebookLM",
-    "tagline": "Upload your sources and get grounded summaries, mind maps, and audio overviews.",
-    "category": "Note-Taking",
-    "pricing": "Free / Plus $19.99/mo",
-    "featured": false
-  },
-  {
-    "id": 46,
-    "slug": "reflect",
-    "name": "Reflect",
-    "tagline": "AI-first note-taking with backlinks, daily notes, and networked thinking.",
-    "category": "Note-Taking",
-    "pricing": "$10/mo",
-    "featured": false
-  }
+  {"id":1,"slug":"chatgpt","name":"ChatGPT","tagline":"OpenAI's flagship assistant with GPT-5.6, vision, voice, and deep reasoning.","category":"Chatbots & LLMs","pricing":"Free / Plus $20/mo","featured":true,"url":"https://chat.openai.com","bestFor":"Anyone who wants the most versatile general-purpose AI assistant","features":["GPT-5.6 with deep reasoning mode","Image, voice, and document understanding","Custom GPTs and code interpreter","Memory that persists across chats"],"pros":["Most feature-complete assistant available","Massive plugin and GPT ecosystem","Free tier is genuinely useful"],"cons":["Best features locked behind $20/mo Plus","Occasional hallucination on niche topics"],"alternatives":["claude","gemini","deepseek"]},
+  {"id":2,"slug":"claude","name":"Claude","tagline":"Anthropic's assistant known for long-context reasoning and safe, thoughtful outputs.","category":"Chatbots & LLMs","pricing":"Free / Pro $20/mo","featured":true,"url":"https://claude.ai","bestFor":"Writers, analysts, and developers working with long documents","features":["200K+ token context window","Artifacts for live code and document previews","Projects to organize long-running work","Strong at nuanced writing and analysis"],"pros":["Best-in-class at long document analysis","Thoughtful, less likely to hallucinate","Excellent for coding and refactoring"],"cons":["No image generation","Usage limits on free tier are tight"],"alternatives":["chatgpt","gemini","deepseek"]},
+  {"id":3,"slug":"gemini","name":"Gemini","tagline":"Google's multimodal assistant deeply integrated with Search, Workspace, and Android.","category":"Chatbots & LLMs","pricing":"Free / Advanced $20/mo","featured":true,"url":"https://gemini.google.com","bestFor":"Google Workspace users who want AI inside Docs, Gmail, and Drive","features":["1M token context on Pro tier","Native integration with Docs, Gmail, Sheets","Real-time Google Search grounding","Image, video, and audio understanding"],"pros":["Deepest Google ecosystem integration","Huge context window on paid tier","Free tier is generous"],"cons":["Inconsistent quality vs ChatGPT/Claude","Privacy concerns for Workspace data"],"alternatives":["chatgpt","claude","perplexity"]},
+  {"id":4,"slug":"deepseek","name":"DeepSeek","tagline":"Open-weight LLM with 1M token context, strong coding, and agent capabilities.","category":"Chatbots & LLMs","pricing":"Free / API pay-as-you-go","featured":true,"url":"https://deepseek.com","bestFor":"Developers who want a free, open-weight ChatGPT alternative","features":["1M token context window","Top-tier coding performance","Open-weight and self-hostable","Agent and tool-calling support"],"pros":["Completely free on web and mobile","Strong coding benchmarks","Open weights for full privacy"],"cons":["Data stored on Chinese servers","Slower during peak load hours"],"alternatives":["chatgpt","claude","qwen"]},
+  {"id":5,"slug":"perplexity","name":"Perplexity","tagline":"AI answer engine with real-time citations and agentic research via Comet browser.","category":"Chatbots & LLMs","pricing":"Free / Pro $20/mo","featured":true,"url":"https://perplexity.ai","bestFor":"Researchers and students who need sourced, up-to-date answers","features":["Real-time web search with citations","Comet browser with built-in AI agent","Focus modes for academic, video, social","Spaces for collaborative research"],"pros":["Every answer cites its sources","Always current — searches live web","Great for research and fact-checking"],"cons":["Less creative than ChatGPT/Claude","Free tier limited to 5 Pro searches/day"],"alternatives":["chatgpt","gemini","consensus"]},
+  {"id":6,"slug":"grok","name":"Grok","tagline":"xAI's real-time chatbot with live X data and a sharp, unfiltered personality.","category":"Chatbots & LLMs","pricing":"Free / Premium+ $30/mo","featured":false,"url":"https://grok.com","bestFor":"Users who want real-time social trends and a less filtered AI","features":["Live access to X (Twitter) posts","Real-time news and trend analysis","Image generation via Aurora","Direct integration with X platform"],"pros":["Real-time social data access","Less restrictive content policy","Free tier available"],"cons":["Tied to X ecosystem","Personality can feel gimmicky"],"alternatives":["chatgpt","gemini","perplexity"]},
+  {"id":7,"slug":"mistral-le-chat","name":"Mistral Le Chat","tagline":"European frontier assistant with fast inference and strong multilingual support.","category":"Chatbots & LLMs","pricing":"Free / Pro $14.99/mo","featured":false,"url":"https://chat.mistral.ai","bestFor":"European users and businesses with GDPR compliance needs","features":["Extremely fast inference speeds","Strong European language support","Canvas for editing documents live","Built on Mistral Large frontier model"],"pros":["Fastest responses of any frontier model","EU-based — GDPR compliant","Open-weight models available"],"cons":["Smaller ecosystem than OpenAI/Google","Less feature-rich than competitors"],"alternatives":["chatgpt","claude","qwen"]},
+  {"id":8,"slug":"qwen","name":"Qwen","tagline":"Alibaba's open-weight model family with top-tier multilingual and reasoning scores.","category":"Chatbots & LLMs","pricing":"Free / API pricing","featured":false,"url":"https://chat.qwen.ai","bestFor":"Developers needing strong open-weight models for self-hosting","features":["Multiple model sizes (0.5B to 480B)","Best-in-class multilingual performance","Strong math and reasoning benchmarks","Full open-weight availability"],"pros":["Top open-weight model family","Excellent Asian language support","Runs on consumer hardware at small sizes"],"cons":["Documentation mostly in Chinese","Web UI less polished than competitors"],"alternatives":["deepseek","kimi","mistral-le-chat"]},
+  {"id":9,"slug":"kimi","name":"Kimi","tagline":"Moonshot AI's long-context assistant built for research and document analysis.","category":"Chatbots & LLMs","pricing":"Free / API pricing","featured":false,"url":"https://kimi.com","bestFor":"Researchers analyzing very long documents and PDFs","features":["Up to 2M token context window","Handles full books and long PDFs","Web search with citations","Strong Chinese and English support"],"pros":["Massive context window","Free to use on web","Great for academic research"],"cons":["Chinese company — data concerns","Less known outside Asia"],"alternatives":["deepseek","qwen","claude"]},
+  {"id":10,"slug":"meta-ai","name":"Meta AI","tagline":"Free assistant baked into WhatsApp, Instagram, and Messenger.","category":"Chatbots & LLMs","pricing":"Free","featured":false,"url":"https://meta.ai","bestFor":"Casual users who want AI inside apps they already use","features":["Built into WhatsApp, Instagram, Messenger","Llama 4 based frontier model","Image generation with 'Imagine'","Completely free with no usage caps"],"pros":["Zero setup — already in your apps","Completely free","Huge reach — 500M+ users"],"cons":["Less capable than top-tier assistants","Tied to Meta's ecosystem"],"alternatives":["chatgpt","gemini","grok"]},
+  {"id":11,"slug":"github-copilot","name":"GitHub Copilot","tagline":"AI pair programmer with inline completions, chat, and agent mode in your IDE.","category":"Coding","pricing":"Free / Pro $10/mo","featured":false,"url":"https://github.com/features/copilot","bestFor":"Developers who want AI suggestions right inside VS Code or JetBrains","features":["Inline code completions as you type","Chat with your codebase in the IDE","Agent mode for multi-file edits","Supports GPT-4o, Claude, and Gemini models"],"pros":["Deepest IDE integration available","Free tier for individual developers","Multi-model — pick the best LLM per task"],"cons":["Suggestions can be generic on niche code","Full agent mode requires paid plan"],"alternatives":["cursor","claude-code","windsurf"]},
+  {"id":12,"slug":"cursor","name":"Cursor","tagline":"AI-first code editor with codebase-wide context and multi-file agent edits.","category":"Coding","pricing":"Free / Pro $20/mo","featured":true,"url":"https://cursor.com","bestFor":"Professional developers who want an AI-native editor built on VS Code","features":["Codebase-wide context and search","Composer for multi-file agent edits","Tab autocomplete that predicts your next edit","Bring your own API keys (OpenAI, Anthropic)"],"pros":["Best-in-class agentic editing","Full VS Code extension compatibility","Fast and reliable for large repos"],"cons":["Heavy usage burns through Pro quota fast","Occasional indexing lag on huge codebases"],"alternatives":["github-copilot","windsurf","claude-code"]},
+  {"id":13,"slug":"claude-code","name":"Claude Code","tagline":"Anthropic's terminal-based coding agent that plans, edits, and runs tests autonomously.","category":"Coding","pricing":"$20/mo (Pro) / API","featured":false,"url":"https://claude.com/product/claude-code","bestFor":"Developers who want an autonomous coding agent in their terminal","features":["Terminal-native — no IDE required","Reads and edits files across the repo","Runs tests and iterates autonomously","Git-aware for commits and diffs"],"pros":["Best-in-class for large refactors","Understands full codebase context","Zero setup — just install and go"],"cons":["Requires subscription or API credits","Terminal-only — no GUI"],"alternatives":["cursor","github-copilot","openai-codex"]},
+  {"id":14,"slug":"openai-codex","name":"OpenAI Codex","tagline":"Cloud coding agent hitting 85.5% on SWE-bench Verified — autonomous PR generation.","category":"Coding","pricing":"Included with ChatGPT Plus / API","featured":false,"url":"https://openai.com/codex","bestFor":"Teams that want to delegate entire tickets to an AI agent","features":["Runs tasks in parallel cloud sandboxes","Generates complete pull requests","85.5% on SWE-bench Verified","Works directly with GitHub repos"],"pros":["Top SWE-bench scores — near human level","Runs autonomously for long tasks","Integrated with ChatGPT Plus"],"cons":["Requires connected GitHub repo","Best results with clear, scoped tickets"],"alternatives":["claude-code","cursor","github-copilot"]},
+  {"id":15,"slug":"replit-agent","name":"Replit Agent","tagline":"Describe an app, get a deployed full-stack project — no local setup needed.","category":"Coding","pricing":"Free / Core $25/mo","featured":false,"url":"https://replit.com","bestFor":"Beginners and prototypers who want to build full apps in the browser","features":["Full-stack app generation from a prompt","Built-in hosting and database","Live preview and instant deploy","No local environment setup needed"],"pros":["Zero setup — everything in browser","Great for learning and prototyping","Deploy with one click"],"cons":["Agent can get stuck on complex features","Costs add up on heavy usage"],"alternatives":["bolt-new","lovable","cursor"]},
+  {"id":16,"slug":"windsurf","name":"Windsurf","tagline":"Agentic IDE with Cascade flows that keep deep context across your entire project.","category":"Coding","pricing":"Free / Pro $15/mo","featured":false,"url":"https://windsurf.com","bestFor":"Developers who want agentic coding with a familiar VS Code feel","features":["Cascade agentic flows across files","Real-time awareness of your edits","Multi-file refactors and fixes","Built-in terminal integration"],"pros":["Cheaper than Cursor Pro","Strong agent mode","Familiar VS Code base"],"cons":["Smaller ecosystem than Cursor","Occasional context drift on long sessions"],"alternatives":["cursor","github-copilot","claude-code"]},
+  {"id":17,"slug":"midjourney","name":"Midjourney","tagline":"The gold standard for AI image aesthetics — cinematic, stylized, and consistent.","category":"Image","pricing":"$10/mo","featured":true,"url":"https://midjourney.com","bestFor":"Designers and artists who need the most beautiful AI images","features":["Best-in-class aesthetic quality","Style references and character consistency","Web editor for inpainting and panning","V7 model with improved realism"],"pros":["Highest image quality available","Huge community and prompt library","Simple pricing from $10/mo"],"cons":["No free tier","Less literal than DALL·E — better for art than accuracy"],"alternatives":["nano-banana","dall-e","leonardo-ai"]},
+  {"id":18,"slug":"nano-banana","name":"Nano Banana","tagline":"Google's top-ranked image model with industry-leading editing and consistency.","category":"Image","pricing":"Free (in Gemini) / API","featured":false,"url":"https://gemini.google.com","bestFor":"Anyone who needs precise image editing and character consistency","features":["Top of LMArena image leaderboard","Best-in-class character consistency","Precise text rendering in images","Multi-image blending"],"pros":["Free inside Gemini","Beats Midjourney on editing tasks","Excellent at adding/removing objects"],"cons":["Less artistic than Midjourney","Access via Gemini app only (no standalone)"],"alternatives":["midjourney","dall-e","adobe-firefly"]},
+  {"id":19,"slug":"dall-e","name":"DALL·E","tagline":"OpenAI's image model with strong prompt adherence and inpainting built into ChatGPT.","category":"Image","pricing":"Included with ChatGPT Plus / API","featured":false,"url":"https://openai.com/dall-e-3","bestFor":"ChatGPT users who want image generation without a separate tool","features":["Built into ChatGPT — no separate app","Strong prompt adherence","Inpainting and outpainting","Text rendering in images"],"pros":["Bundled with ChatGPT Plus","Great for literal prompts","Easy to iterate with conversation"],"cons":["Lower aesthetic quality than Midjourney","Strict content filters"],"alternatives":["midjourney","nano-banana","adobe-firefly"]},
+  {"id":20,"slug":"adobe-firefly","name":"Adobe Firefly","tagline":"Commercially safe image generation natively integrated into Photoshop and Creative Cloud.","category":"Image","pricing":"Free / Premium $9.99/mo","featured":false,"url":"https://firefly.adobe.com","bestFor":"Professional designers working inside Adobe Creative Cloud","features":["Commercially safe — trained on licensed content","Generative Fill in Photoshop","Text effects and vector generation","Content credentials built-in"],"pros":["Safe for commercial work","Deep Photoshop integration","Free tier with monthly credits"],"cons":["Less creative than Midjourney","Limited to Adobe ecosystem for full features"],"alternatives":["midjourney","dall-e","leonardo-ai"]},
+  {"id":21,"slug":"leonardo-ai","name":"Leonardo AI","tagline":"Fine-tuned image generation for game art, concept design, and production pipelines.","category":"Image","pricing":"Free / Apprentice $12/mo","featured":false,"url":"https://leonardo.ai","bestFor":"Game developers and concept artists producing assets at scale","features":["Custom model training on your style","Real-time canvas for iterative edits","Texture and 3D asset generation","Large library of community models"],"pros":["Best for game/asset production","Custom model training included","Generous free daily credits"],"cons":["Steeper learning curve","UI is dense for beginners"],"alternatives":["midjourney","adobe-firefly","dall-e"]},
+  {"id":22,"slug":"sora","name":"Sora","tagline":"OpenAI's text-to-video model with cinematic quality and scene-level control.","category":"Video","pricing":"ChatGPT Plus / Pro","featured":true,"url":"https://openai.com/sora","bestFor":"Creators who need cinematic AI video without a film crew","features":["Up to 60-second cinematic clips","Text-to-video and image-to-video","Scene blending and consistent characters","Native audio generation"],"pros":["Highest visual quality in class","Bundled with ChatGPT Plus","Great for storyboards and pitches"],"cons":["Limited to 60s clips","Slow generation during peak hours","Content restrictions on people/faces"],"alternatives":["veo","runway","kling"]},
+  {"id":23,"slug":"veo","name":"Veo 3.1","tagline":"Google's flagship video model producing 4K clips with native synchronized audio.","category":"Video","pricing":"Google AI Pro $19.99/mo","featured":false,"url":"https://deepmind.google/technologies/veo","bestFor":"Filmmakers and marketers who need broadcast-quality AI video","features":["4K resolution output","Native synchronized audio","Scene extension and camera controls","Realistic physics simulation"],"pros":["Best 4K quality available","Audio and video generated together","Integrated with YouTube for creators"],"cons":["Expensive — requires Google AI Pro","Limited access by region"],"alternatives":["sora","runway","kling"]},
+  {"id":24,"slug":"runway","name":"Runway","tagline":"Professional AI video suite with Gen-4, motion brush, and full editing tools.","category":"Video","pricing":"Free / Standard $15/mo","featured":false,"url":"https://runwayml.com","bestFor":"Professional video editors and post-production teams","features":["Gen-4 model for consistent characters","Motion brush and camera controls","Video-to-video style transfer","Full editing suite in browser"],"pros":["Best editing toolset of any AI video tool","Pro-grade controls","Used by Hollywood studios"],"cons":["Steeper learning curve","Credits burn fast on Pro features"],"alternatives":["sora","veo","kling"]},
+  {"id":25,"slug":"kling","name":"Kling","tagline":"Kuaishou's video model delivering up to 120-second clips with smooth motion.","category":"Video","pricing":"Free / Standard $10/mo","featured":false,"url":"https://klingai.com","bestFor":"Creators who need longer AI video clips at low cost","features":["Up to 120-second video generation","Realistic human motion","Image-to-video and text-to-video","Motion brush for controlled animation"],"pros":["Longest clips of any model","Cheapest paid tier","Excellent human motion quality"],"cons":["Chinese company — data concerns","Slower on free tier"],"alternatives":["sora","runway","luma-dream-machine"]},
+  {"id":26,"slug":"luma-dream-machine","name":"Luma Dream Machine","tagline":"Fast, dreamlike text-to-video with strong camera control and image-to-video.","category":"Video","pricing":"Free / Lite $9.99/mo","featured":false,"url":"https://lumalabs.ai/dream-machine","bestFor":"Social creators who need quick, visually striking short videos","features":["Fast generation speeds","Strong camera motion controls","Image-to-video animation","Keyframe-based storytelling"],"pros":["Fastest generation of major models","Great for social media content","Free tier available"],"cons":["Shorter clips than Kling","Less realistic physics than Veo"],"alternatives":["kling","runway","sora"]},
+  {"id":27,"slug":"elevenlabs","name":"ElevenLabs","tagline":"Industry-leading AI voice generation, cloning, and dubbing in 30+ languages.","category":"Audio","pricing":"Free / Starter $5/mo","featured":true,"url":"https://elevenlabs.io","bestFor":"Podcasters, audiobook producers, and content creators","features":["Ultra-realistic voice cloning","30+ language dubbing","Voice design from text description","Emotion and pacing controls"],"pros":["Best voice quality in the market","Cheap entry tier ($5/mo)","Works in 30+ languages"],"cons":["Character limits on free tier","Clone quality varies by source audio"],"alternatives":["murf-ai","suno","udio"]},
+  {"id":28,"slug":"suno","name":"Suno","tagline":"Generate full songs — vocals, lyrics, and instruments — from a single prompt.","category":"Audio","pricing":"Free / Pro $10/mo","featured":false,"url":"https://suno.com","bestFor":"Musicians and content creators who need original background music","features":["Full song generation with vocals","Lyric writing assistance","Multiple music genres","Stem separation for editing"],"pros":["Best vocal quality of AI music tools","Full songs, not just loops","Free tier with daily credits"],"cons":["Commercial rights only on paid tier","Songs can sound similar across prompts"],"alternatives":["udio","elevenlabs","murf-ai"]},
+  {"id":29,"slug":"udio","name":"Udio","tagline":"High-fidelity music generation with fine control over stems, style, and structure.","category":"Audio","pricing":"Free / Standard $10/mo","featured":false,"url":"https://udio.com","bestFor":"Producers who want granular control over AI-generated music","features":["Stem-by-stem generation","Fine control over song structure","High-fidelity audio output","Extend and remix existing tracks"],"pros":["More control than Suno","Higher audio fidelity","Great for remixing"],"cons":["Steeper learning curve","Smaller community than Suno"],"alternatives":["suno","elevenlabs","murf-ai"]},
+  {"id":30,"slug":"murf-ai","name":"Murf AI","tagline":"Studio-quality AI voiceovers for videos, e-learning, and ads.","category":"Audio","pricing":"Free / Creator $19/mo","featured":false,"url":"https://murf.ai","bestFor":"Businesses producing e-learning and marketing voiceovers","features":["120+ studio-quality voices","Sync with video timelines","Voice cloning","Team collaboration features"],"pros":["Great for business content","Easy timeline editor","Broad voice library"],"cons":["Less realistic than ElevenLabs","Pricier than competitors"],"alternatives":["elevenlabs","suno","udio"]},
+  {"id":31,"slug":"jasper","name":"Jasper","tagline":"Marketing-focused AI writer that keeps content on-brand across every channel.","category":"Writing","pricing":"Creator $39/mo","featured":false,"url":"https://jasper.ai","bestFor":"Marketing teams producing content at scale","features":["Brand voice training","Marketing templates library","Multi-channel campaign generation","Team collaboration and workflows"],"pros":["Best for brand consistency","Huge template library","Built for teams"],"cons":["Expensive at $39/mo","No free tier"],"alternatives":["copy-ai","grammarly","surfer-seo"]},
+  {"id":32,"slug":"grammarly","name":"Grammarly","tagline":"AI writing partner with grammar, tone, rewrites, and generative drafting built in.","category":"Writing","pricing":"Free / Pro $12/mo","featured":false,"url":"https://grammarly.com","bestFor":"Everyone who writes emails, docs, or articles daily","features":["Real-time grammar and clarity fixes","Tone detection and rewriting","Generative AI drafting","Works across every app and browser"],"pros":["Works everywhere — browser, docs, email","Free tier is very capable","Industry standard for editing"],"cons":["Generative features limited vs ChatGPT","Best features need Pro"],"alternatives":["jasper","copy-ai","quillbot"]},
+  {"id":33,"slug":"copy-ai","name":"Copy.ai","tagline":"GTM AI platform that automates sales and marketing copy at scale.","category":"Writing","pricing":"Free / Pro $49/mo","featured":false,"url":"https://copy.ai","bestFor":"Sales and marketing teams automating outbound copy","features":["GTM workflow automation","Sales email sequences","Content repurposing","CRM integrations"],"pros":["Great for outbound sales","Automates repetitive copy","Strong CRM integrations"],"cons":["Expensive for individuals","Focused on B2B, not creatives"],"alternatives":["jasper","grammarly","anyword"]},
+  {"id":34,"slug":"surfer-seo","name":"Surfer SEO","tagline":"AI content optimization with real-time SERP scoring and topical outlines.","category":"Writing","pricing":"Essential $79/mo","featured":false,"url":"https://surferseo.com","bestFor":"SEO content teams optimizing articles to rank on Google","features":["Real-time content scoring vs top SERP results","AI article outlines","Keyword research and clustering","Content audit for existing pages"],"pros":["Best SEO optimization tool","Real-time scoring as you write","Strong data on SERP competitors"],"cons":["Expensive at $79/mo","Requires SEO knowledge to use well"],"alternatives":["jasper","copy-ai","grammarly"]},
+  {"id":35,"slug":"notion-ai","name":"Notion AI","tagline":"AI-native workspace that writes, summarizes, and searches across all your docs.","category":"Productivity","pricing":"$10/mo add-on","featured":true,"url":"https://notion.so/product/ai","bestFor":"Teams who want an AI copilot across their entire knowledge base","features":["AI Q&A across all workspace docs","Auto-summaries and action items","Writing assistance inside every page","Connected search across Slack, Drive, GitHub"],"pros":["Works where you already work","Understands your team's context","Great for meeting notes and docs"],"cons":["Requires Notion workspace","Add-on cost on top of Notion plan"],"alternatives":["reflect","notebooklm","microsoft-365-copilot"]},
+  {"id":36,"slug":"manus-ai","name":"Manus AI","tagline":"General-purpose autonomous agent that plans and executes multi-step tasks end-to-end.","category":"Productivity","pricing":"Free / Pro $19/mo","featured":false,"url":"https://manus.im","bestFor":"Users who want to delegate entire workflows to an AI agent","features":["Multi-step autonomous task execution","Browser control for web tasks","File creation (docs, sheets, slides)","Parallel agent runs"],"pros":["Most capable general-purpose agent","Handles complex multi-hour tasks","Great for research and reporting"],"cons":["Free tier heavily limited","Occasional long wait queues"],"alternatives":["chatgpt","claude","zapier"]},
+  {"id":37,"slug":"microsoft-365-copilot","name":"Microsoft 365 Copilot","tagline":"AI embedded across Word, Excel, Outlook, and Teams for enterprise workflows.","category":"Productivity","pricing":"$30/user/mo","featured":false,"url":"https://microsoft.com/microsoft-365/copilot","bestFor":"Enterprises already running Microsoft 365","features":["AI in Word, Excel, PowerPoint, Outlook, Teams","Meeting summaries and recaps in Teams","Excel data analysis in natural language","Enterprise-grade security and compliance"],"pros":["Deep integration with Office apps","Enterprise security built-in","Scales to whole organizations"],"cons":["Expensive at $30/user/mo","Requires Microsoft 365 subscription"],"alternatives":["notion-ai","grammarly","zapier"]},
+  {"id":38,"slug":"zapier","name":"Zapier","tagline":"Connect 7,000+ apps and automate workflows with AI-powered agents.","category":"Productivity","pricing":"Free / Professional $19.99/mo","featured":false,"url":"https://zapier.com","bestFor":"Anyone who wants to automate repetitive workflows without coding","features":["7,000+ app integrations","AI agents that trigger on events","No-code workflow builder","Conditional logic and filters"],"pros":["Largest integration library","No coding required","Free tier for basic workflows"],"cons":["Gets expensive at scale","Complex workflows need paid tier"],"alternatives":["manus-ai","notion-ai","microsoft-365-copilot"]},
+  {"id":39,"slug":"elicit","name":"Elicit","tagline":"AI research assistant that finds, summarizes, and extracts data from papers.","category":"Research","pricing":"Free / Plus $12/mo","featured":false,"url":"https://elicit.com","bestFor":"Academic researchers doing systematic literature reviews","features":["Search 125M+ academic papers","Auto-extract data into tables","Systematic review workflows","PDF analysis and summarization"],"pros":["Built specifically for academic research","Automates tedious data extraction","Cites every claim"],"cons":["Narrow use case — academic only","Free tier limited to limited extractions"],"alternatives":["consensus","perplexity","notebooklm"]},
+  {"id":40,"slug":"consensus","name":"Consensus","tagline":"Search 200M+ academic papers and get evidence-backed answers with citations.","category":"Research","pricing":"Free / Premium $8.99/mo","featured":false,"url":"https://consensus.app","bestFor":"Anyone who needs science-backed answers to specific questions","features":["200M+ paper search index","Consensus meter shows agreement","Study quality indicators","Direct citations to sources"],"pros":["Fastest way to check scientific consensus","Cheap premium tier","High-quality citations"],"cons":["Limited to academic papers","Not for general research"],"alternatives":["elicit","perplexity","notebooklm"]},
+  {"id":41,"slug":"gamma","name":"Gamma","tagline":"Generate polished presentations, docs, and sites from a single prompt.","category":"Presentations","pricing":"Free / Plus $10/mo","featured":false,"url":"https://gamma.app","bestFor":"Founders and marketers who need decks fast","features":["AI-generated presentations from prompts","Auto-designed layouts and visuals","Embed video, charts, and web content","Export to PPT, PDF, or publish as site"],"pros":["Fastest deck generation","Beautiful default designs","Free tier is generous"],"cons":["Less control than PowerPoint","Best templates locked behind Plus"],"alternatives":["beautiful-ai","notion-ai","chatgpt"]},
+  {"id":42,"slug":"beautiful-ai","name":"Beautiful.ai","tagline":"Smart slide templates that auto-format as you type — no design skills needed.","category":"Presentations","pricing":"Pro $12/mo","featured":false,"url":"https://beautiful.ai","bestFor":"Business users who need clean, on-brand slides quickly","features":["Smart templates that adapt to content","DesignerBot AI design assistant","Brand kit for consistency","Real-time team collaboration"],"pros":["Slides always look professional","No design skills required","Great for corporate use"],"cons":["No free tier","Less flexible than PowerPoint"],"alternatives":["gamma","notion-ai","microsoft-365-copilot"]},
+  {"id":43,"slug":"lovable","name":"Lovable","tagline":"Describe an app in plain English and get a full-stack web product deployed.","category":"Website Builders","pricing":"Free / Pro $25/mo","featured":false,"url":"https://lovable.dev","bestFor":"Founders who want to ship MVPs without a dev team","features":["Full-stack app generation from prompts","Supabase integration for backend","One-click deploy","GitHub sync for version control"],"pros":["True full-stack output","Backend included","Great for MVPs and prototypes"],"cons":["Complex features can break generation","Best on paid tier"],"alternatives":["bolt-new","replit-agent","cursor"]},
+  {"id":44,"slug":"bolt-new","name":"Bolt.new","tagline":"In-browser AI dev environment that builds, runs, and deploys full-stack apps.","category":"Website Builders","pricing":"Free / Pro $20/mo","featured":false,"url":"https://bolt.new","bestFor":"Developers who want to prototype in the browser instantly","features":["Full-stack apps in the browser","Runs Node.js and npm live","Deploy to Netlify in one click","Real-time error fixing"],"pros":["No local setup needed","Instant preview","Great for quick experiments"],"cons":["Token limits on free tier","Best for small-to-medium apps"],"alternatives":["lovable","replit-agent","cursor"]},
+  {"id":45,"slug":"notebooklm","name":"Google NotebookLM","tagline":"Upload your sources and get grounded summaries, mind maps, and audio overviews.","category":"Note-Taking","pricing":"Free / Plus $19.99/mo","featured":false,"url":"https://notebooklm.google.com","bestFor":"Students and analysts researching from specific documents","features":["Grounded answers — only from your sources","Audio Overviews (podcast-style summaries)","Mind maps and study guides","Up to 50 sources per notebook"],"pros":["Never hallucinates — cites your docs","Audio Overviews are excellent","Free to use"],"cons":["Cannot search the open web","Limited to uploaded sources"],"alternatives":["elicit","reflect","notion-ai"]},
+  {"id":46,"slug":"reflect","name":"Reflect","tagline":"AI-first note-taking with backlinks, daily notes, and networked thinking.","category":"Note-Taking","pricing":"$10/mo","featured":false,"url":"https://reflect.app","bestFor":"Knowledge workers building a personal second brain","features":["AI chat across all your notes","Backlinks and graph view","Daily notes and templates","End-to-end encryption"],"pros":["Beautiful, fast interface","Strong AI integration","Privacy-focused"],"cons":["No free tier","Smaller ecosystem than Notion"],"alternatives":["notion-ai","notebooklm","elicit"]}
 ]
