@@ -3,6 +3,16 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
+function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .replace(/&/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 type Agent = {
   id: number | string;
   slug: string;
@@ -99,11 +109,22 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
           })}
         </div>
 
-        <p className="text-sm text-gray-500">
-          {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
-          {category !== "All" ? ` in ${category}` : ""}
-          {query ? ` matching "${query}"` : ""}
-        </p>
+        {/* Count + category page link */}
+        <div className="flex items-center gap-3 flex-wrap text-sm">
+          <span className="text-gray-500">
+            {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
+            {category !== "All" ? ` in ${category}` : ""}
+            {query ? ` matching "${query}"` : ""}
+          </span>
+          {category !== "All" && (
+            <Link
+              href={`/category/${slugify(category)}`}
+              className="text-purple-400 hover:text-purple-300 font-medium"
+            >
+              Open category page →
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Grid */}
