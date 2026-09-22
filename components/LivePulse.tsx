@@ -1,11 +1,11 @@
 import Link from 'next/link';
+import ToolLogo from './ToolLogo';
 
 type TrendingTool = {
   name: string;
   slug: string;
   category: string;
   percent: number;
-  featured?: boolean;
 };
 
 type UpdateItem = {
@@ -15,11 +15,11 @@ type UpdateItem = {
 };
 
 const TRENDING: TrendingTool[] = [
-  { name: 'ChatGPT', slug: 'chatgpt', category: 'Chatbots', percent: 12, featured: true },
-  { name: 'Claude', slug: 'claude', category: 'Chatbots', percent: 8, featured: true },
-  { name: 'Cursor', slug: 'cursor', category: 'Coding', percent: 15, featured: true },
-  { name: 'DeepSeek', slug: 'deepseek', category: 'Chatbots', percent: 22, featured: true },
-  { name: 'Sora', slug: 'sora', category: 'Video', percent: 9, featured: true },
+  { name: 'ChatGPT', slug: 'chatgpt', category: 'Chatbots', percent: 12 },
+  { name: 'Claude', slug: 'claude', category: 'Chatbots', percent: 8 },
+  { name: 'Cursor', slug: 'cursor', category: 'Coding', percent: 15 },
+  { name: 'DeepSeek', slug: 'deepseek', category: 'Chatbots', percent: 22 },
+  { name: 'Sora', slug: 'sora', category: 'Video', percent: 9 },
 ];
 
 const UPDATES: UpdateItem[] = [
@@ -31,10 +31,10 @@ const UPDATES: UpdateItem[] = [
 ];
 
 function Sparkline({ percent, seed }: { percent: number; seed: number }) {
-  const width = 48;
-  const height = 22;
+  const width = 44;
+  const height = 20;
   const baseY = height / 2;
-  const amplitude = 6;
+  const amplitude = 5.5;
 
   const points: string[] = [];
   for (let i = 0; i < 12; i++) {
@@ -50,12 +50,7 @@ function Sparkline({ percent, seed }: { percent: number; seed: number }) {
   const gradId = `sparkGrad-${seed}`;
 
   return (
-    <svg
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
-      className="shrink-0"
-    >
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} className="shrink-0">
       <path
         d={path}
         fill="none"
@@ -77,7 +72,6 @@ function Sparkline({ percent, seed }: { percent: number; seed: number }) {
 export default function LivePulse() {
   return (
     <>
-      {/* Live Pulse */}
       <div className="rounded-2xl border border-gray-200 bg-white p-4">
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-bold text-gray-900 tracking-tight">
@@ -93,16 +87,17 @@ export default function LivePulse() {
           Real-time trending across AI tools (updated hourly)
         </p>
 
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           {TRENDING.map((tool, i) => (
             <Link
               key={tool.slug}
               href={`/agent/${tool.slug}`}
               className="flex items-center gap-2 py-1.5 group"
             >
-              <span className="w-4 text-xs font-bold text-gray-400">
+              <span className="w-3.5 text-[11px] font-bold text-gray-400">
                 {i + 1}
               </span>
+              <ToolLogo slug={tool.slug} size={18} />
               <div className="flex-1 min-w-0">
                 <div className="text-xs font-semibold text-gray-900 group-hover:text-purple-600 transition truncate">
                   {tool.name}
@@ -127,7 +122,6 @@ export default function LivePulse() {
         </Link>
       </div>
 
-      {/* Updates */}
       <div className="rounded-2xl border border-gray-200 bg-white p-4">
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-bold text-gray-900 tracking-tight">
