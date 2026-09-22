@@ -4,7 +4,7 @@ export default function NewsletterSignup({
   variant?: "card" | "compact";
 }) {
   // ⚠️ REPLACE with your real email before pushing
-  const FORM_EMAIL = "your-email@example.com";
+  const FORM_EMAIL = "gauravbhatiatry1990@gmail.com";
   const FORM_ACTION = `https://formsubmit.co/${FORM_EMAIL}`;
 
   if (variant === "compact") {
