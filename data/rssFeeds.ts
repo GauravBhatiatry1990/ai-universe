@@ -5,11 +5,7 @@ export type RssFeed = {
 };
 
 export const RSS_FEEDS: RssFeed[] = [
-  {
-    name: 'TechCrunch AI',
-    url: 'https://techcrunch.com/category/artificial-intelligence/feed/',
-    category: 'Industry',
-  },
+
   {
     name: 'VentureBeat AI',
     url: 'https://venturebeat.com/category/ai/feed/',
