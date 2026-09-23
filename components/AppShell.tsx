@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { ReactNode, useState, FormEvent } from "react";
 import Link from "next/link";
 
 const NAV_ITEMS = [
@@ -21,6 +21,8 @@ export default function AppShell({
   rightRail?: ReactNode;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const [q, setQ] = useState("");
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -28,9 +30,18 @@ export default function AppShell({
     return pathname.startsWith(href);
   };
 
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    const query = q.trim();
+    if (!query) return;
+    router.push(`/?q=${encodeURIComponent(query)}#tools`);
+    setTimeout(() => {
+      document.getElementById("tools")?.scrollIntoView({ behavior: "smooth" });
+    }, 80);
+  }
+
   return (
     <div className="min-h-screen flex bg-[#F8FAFF]">
-      {/* ─── SIDEBAR ─── */}
       <aside className="hidden lg:flex flex-col w-56 shrink-0 border-r border-gray-200/70 bg-white/70 backdrop-blur-xl">
         <div className="px-5 py-5 border-b border-gray-200/70">
           <Link href="/" className="flex items-center gap-2.5 group">
@@ -88,7 +99,6 @@ export default function AppShell({
         </div>
       </aside>
 
-      {/* ─── MAIN AREA ─── */}
       <div className="flex-1 flex flex-col min-w-0">
         <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/70 border-b border-gray-200/70">
           <div className="flex items-center gap-3 px-4 lg:px-6 py-3">
@@ -97,17 +107,21 @@ export default function AppShell({
               <span className="font-bold text-gray-900 text-sm">AI Universe</span>
             </Link>
 
-            <Link href="/#tools" className="flex-1 max-w-xl group hidden sm:block">
-              <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white/80 px-4 py-2 hover:border-purple-200 transition">
+            <form onSubmit={handleSubmit} className="flex-1 max-w-xl hidden sm:block">
+              <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white/80 px-4 py-2 focus-within:border-purple-300 focus-within:ring-2 focus-within:ring-purple-100 transition">
                 <span className="text-gray-400 text-sm">🔍</span>
-                <span className="text-sm text-gray-400 flex-1 truncate">
-                  Search tools, news, categories...
-                </span>
+                <input
+                  type="text"
+                  value={q}
+                  onChange={(e) => setQ(e.target.value)}
+                  placeholder="Search AI tools..."
+                  className="flex-1 bg-transparent text-sm text-gray-700 placeholder-gray-400 focus:outline-none"
+                />
                 <kbd className="hidden md:inline-flex items-center gap-0.5 rounded border border-gray-200 bg-gray-50 px-1.5 py-0.5 text-[10px] font-medium text-gray-400">
-                  ⌘K
+                  ⏎
                 </kbd>
               </div>
-            </Link>
+            </form>
 
             <div className="ml-auto flex items-center gap-2">
               <button

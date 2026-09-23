@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { getLogoUrl } from '../data/toolDomains';
 
@@ -27,8 +27,19 @@ type Agent = {
   features?: string[];
 };
 
-export default function AgentExplorer({ agents }: { agents: Agent[] }) {
+export default function AgentExplorer({
+  agents,
+  initialQuery = "",
+}: {
+  agents: Agent[];
+  initialQuery?: string;
+}) {
   const [category, setCategory] = useState("All");
+  const [query, setQuery] = useState(initialQuery);
+
+  useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(agents.map((a) => a.category))).sort()],
@@ -36,12 +47,23 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
   );
 
   const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
     const results = agents.filter((a) => {
       if (category !== "All" && a.category !== category) return false;
-      return true;
+      if (!q) return true;
+      const haystack = [
+        a.name,
+        a.tagline,
+        a.category,
+        a.bestFor || '',
+        (a.features || []).join(' '),
+      ]
+        .join(' ')
+        .toLowerCase();
+      return haystack.includes(q);
     });
     return results.sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
-  }, [agents, category]);
+  }, [agents, category, query]);
 
   return (
     <section id="tools">
@@ -62,7 +84,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
         )}
       </div>
 
-      <div className="flex flex-wrap gap-1.5 mb-5">
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {categories.map((c) => {
           const active = c === category;
           return (
@@ -82,10 +104,21 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
         })}
       </div>
 
-      <p className="text-[11px] text-gray-500 mb-4">
-        {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
-        {category !== "All" ? ` in ${category}` : ""}
-      </p>
+      <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+        <p className="text-[11px] text-gray-500">
+          {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
+          {category !== "All" ? ` in ${category}` : ""}
+          {query ? ` matching "${query}"` : ""}
+        </p>
+        {query && (
+          <button
+            onClick={() => setQuery("")}
+            className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 text-[11px] font-medium px-2.5 py-1 transition"
+          >
+            Clear search ✕
+          </button>
+        )}
+      </div>
 
       {filtered.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -138,12 +171,17 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-gray-500 text-base mb-4">No tools in this category.</p>
+          <p className="text-gray-500 text-base mb-4">
+            No tools match your search.
+          </p>
           <button
-            onClick={() => setCategory("All")}
+            onClick={() => {
+              setCategory("All");
+              setQuery("");
+            }}
             className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 text-[11px] font-medium px-3 py-1.5 transition"
           >
-            Show all tools
+            Clear filters
           </button>
         </div>
       )}
