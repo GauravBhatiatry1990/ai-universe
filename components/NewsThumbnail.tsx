@@ -23,18 +23,18 @@ export default function NewsThumbnail({
       <img
         src={image}
         alt={alt}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover opacity-90 hover:opacity-100 transition"
         onError={() => setImgFailed(true)}
       />
     );
   }
 
   return (
-    <div className="w-full h-full bg-gray-50 flex items-center justify-center p-4">
+    <div className="w-full h-full bg-zinc-900/50 flex items-center justify-center p-4">
       <img
         src={sourceLogo}
         alt={alt}
-        className={`${maxLogo} object-contain opacity-90`}
+        className={`${maxLogo} object-contain opacity-50 grayscale hover:grayscale-0 transition`}
         onError={(e) => {
           (e.target as HTMLImageElement).style.display = 'none';
         }}
