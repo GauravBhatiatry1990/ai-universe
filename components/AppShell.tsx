@@ -30,7 +30,7 @@ export default function AppShell({
   };
 
   return (
-    <div className="min-h-screen flex bg-[#fafbff]">
+    <div className="min-h-screen flex bg-[#F8FAFF]">
       {/* ─── SIDEBAR ─── */}
       <aside className="hidden lg:flex flex-col w-60 shrink-0 border-r border-gray-200/70 bg-white/70 backdrop-blur-xl">
         {/* Logo */}

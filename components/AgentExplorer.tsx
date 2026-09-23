@@ -54,8 +54,8 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
 
   return (
     <>
-      {/* Stats bar */}
-      <div className="mb-6 flex items-center justify-between text-sm">
+      {/* Context bar */}
+      <div className="mb-6 rounded-2xl border border-gray-200 bg-white px-5 py-3 flex items-center justify-between text-sm shadow-sm">
         <div className="flex items-center gap-4 text-gray-600">
           <span>
             <span className="font-semibold text-gray-900">{agents.length}</span> tools
@@ -73,24 +73,26 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
             featured
           </span>
         </div>
-        <span className="text-gray-400">Updated daily</span>
+        <span className="text-[11px] text-gray-400">Updated daily</span>
       </div>
 
-      {/* Search */}
+      {/* Search + filters */}
       <div className="mb-8 space-y-4">
-        <div className="relative group">
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-400/30 via-blue-400/30 to-cyan-400/30 opacity-0 group-focus-within:opacity-100 blur transition" />
+        <div className="relative">
+          <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm pointer-events-none">
+            🔍
+          </span>
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search AI tools by name, tagline, feature, or category..."
-            className="relative w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 shadow-sm focus:border-purple-400 focus:outline-none transition"
+            className="w-full rounded-xl border border-gray-200 bg-white pl-10 pr-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 shadow-sm focus:border-purple-300 focus:ring-2 focus:ring-purple-100 focus:outline-none transition"
           />
         </div>
 
-        {/* Category pills */}
-        <div className="flex flex-wrap gap-2">
+        {/* Category tabs */}
+        <div className="flex flex-wrap gap-1">
           {categories.map((c) => {
             const active = c === category;
             return (
@@ -98,10 +100,10 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
                 key={c}
                 onClick={() => setCategory(c)}
                 className={
-                  "rounded-full px-4 py-1.5 text-sm font-medium transition " +
+                  "rounded-lg px-3.5 py-2 text-sm font-medium transition " +
                   (active
-                    ? "bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md shadow-purple-500/20"
-                    : "border border-gray-200 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-300")
+                    ? "bg-white text-purple-700 border border-purple-200 shadow-sm"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-white/60 border border-transparent")
                 }
               >
                 {c}
@@ -111,7 +113,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
         </div>
 
         {/* Count + category link */}
-        <div className="flex items-center gap-3 flex-wrap text-sm">
+        <div className="flex items-center gap-3 flex-wrap text-[11px]">
           <span className="text-gray-500">
             {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
             {category !== "All" ? ` in ${category}` : ""}
@@ -120,7 +122,7 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
           {category !== "All" && (
             <Link
               href={`/category/${slugify(category)}`}
-              className="text-purple-600 hover:text-purple-700 font-medium"
+              className="text-purple-600 hover:text-purple-700 font-semibold"
             >
               Open category page →
             </Link>
@@ -138,10 +140,10 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
                 key={agent.id}
                 href={`/agent/${agent.slug}`}
                 className={
-                  "group relative rounded-2xl border p-6 flex flex-col transition " +
+                  "group relative rounded-2xl border p-5 flex flex-col transition shadow-sm " +
                   (agent.featured
-                    ? "bg-amber-50/40 border-amber-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-100"
-                    : "bg-white border-gray-200 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-100/50")
+                    ? "bg-amber-50/30 border-amber-200 hover:border-amber-300"
+                    : "bg-white border-gray-200 hover:border-purple-200")
                 }
               >
                 <div className="flex justify-between items-start mb-3 gap-2">
@@ -152,35 +154,35 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
                         alt=""
                         width={28}
                         height={28}
-                        className="rounded-md shrink-0 bg-white object-contain"
+                        className="rounded-md shrink-0 bg-white object-contain border border-gray-100 p-0.5"
                         onError={(e) => {
                           (e.target as HTMLImageElement).style.display = 'none';
                         }}
                       />
                     )}
-                    <h2 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition truncate">
+                    <h2 className="text-base font-semibold text-gray-900 group-hover:text-purple-700 transition truncate">
                       {agent.name}
                     </h2>
                   </div>
                   {agent.featured && (
-                    <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
-                      ★ Featured
+                    <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 border border-rose-100 text-rose-700 text-[11px] font-semibold px-2.5 py-1 whitespace-nowrap">
+                      🔥 Featured
                     </span>
                   )}
                 </div>
 
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                <p className="text-xs text-gray-600 mb-3 leading-snug line-clamp-2">
                   {agent.tagline}
                 </p>
 
                 {agent.features && agent.features.length > 0 && (
-                  <ul className="mb-4 space-y-1">
+                  <ul className="mb-3 space-y-1">
                     {agent.features.slice(0, 2).map((f) => (
                       <li
                         key={f}
-                        className="flex items-start gap-2 text-xs text-gray-600"
+                        className="flex items-start gap-2 text-[11px] text-gray-500"
                       >
-                        <span className="text-blue-500 mt-0.5">✓</span>
+                        <span className="text-emerald-500">✓</span>
                         <span className="line-clamp-1">{f}</span>
                       </li>
                     ))}
@@ -188,16 +190,18 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
                 )}
 
                 {agent.bestFor && (
-                  <p className="text-xs text-gray-500 italic mb-4 line-clamp-2">
+                  <p className="text-[11px] text-gray-500 italic mb-3 line-clamp-2">
                     Best for: {agent.bestFor}
                   </p>
                 )}
 
-                <div className="mt-auto flex items-center justify-between pt-2">
-                  <span className="inline-block rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700">
+                <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
+                  <span className="inline-flex items-center rounded-full border border-purple-100 bg-purple-50 px-2.5 py-0.5 text-[11px] font-semibold text-purple-700">
                     {agent.category}
                   </span>
-                  <span className="text-xs text-gray-500">{agent.pricing}</span>
+                  <span className="text-[11px] font-medium text-gray-700">
+                    {agent.pricing}
+                  </span>
                 </div>
               </Link>
             );
@@ -205,13 +209,13 @@ export default function AgentExplorer({ agents }: { agents: Agent[] }) {
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-gray-500 text-lg">No tools match your search.</p>
+          <p className="text-gray-500 text-base mb-4">No tools match your search.</p>
           <button
             onClick={() => {
               setQuery("");
               setCategory("All");
             }}
-            className="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 text-[11px] font-medium px-3 py-1.5 transition"
           >
             Clear filters
           </button>
