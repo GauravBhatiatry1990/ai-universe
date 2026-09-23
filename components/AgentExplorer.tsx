@@ -70,14 +70,14 @@ export default function AgentExplorer({
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2">
           <span className="text-sm">🛠</span>
-          <h2 className="text-sm font-bold text-gray-900 tracking-wide uppercase">
+          <h2 className="text-sm font-bold text-zinc-300 tracking-wide uppercase">
             Explore Tools
           </h2>
         </div>
         {category !== "All" && (
           <Link
             href={`/category/${slugify(category)}`}
-            className="text-xs font-semibold text-purple-600 hover:text-purple-700"
+            className="text-xs font-semibold text-purple-400 hover:text-purple-300 transition"
           >
             Open {category} page →
           </Link>
@@ -94,8 +94,8 @@ export default function AgentExplorer({
               className={
                 "rounded-lg px-3 py-1.5 text-xs font-medium transition " +
                 (active
-                  ? "bg-white text-purple-700 border border-purple-200 shadow-sm"
-                  : "text-gray-600 hover:text-gray-900 hover:bg-white/60 border border-transparent")
+                  ? "bg-purple-500/10 text-purple-400 border border-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.15)]"
+                  : "text-zinc-400 hover:text-white hover:bg-zinc-800/50 border border-transparent")
               }
             >
               {c}
@@ -105,7 +105,7 @@ export default function AgentExplorer({
       </div>
 
       <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
-        <p className="text-[11px] text-gray-500">
+        <p className="text-[11px] text-zinc-500">
           {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
           {category !== "All" ? ` in ${category}` : ""}
           {query ? ` matching "${query}"` : ""}
@@ -113,7 +113,7 @@ export default function AgentExplorer({
         {query && (
           <button
             onClick={() => setQuery("")}
-            className="inline-flex items-center gap-1 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 text-[11px] font-medium px-2.5 py-1 transition"
+            className="inline-flex items-center gap-1 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 text-[11px] font-medium px-2.5 py-1 transition"
           >
             Clear search ✕
           </button>
@@ -129,10 +129,10 @@ export default function AgentExplorer({
                 key={agent.id}
                 href={`/agent/${agent.slug}`}
                 className={
-                  "group relative rounded-2xl border p-5 flex flex-col transition shadow-sm " +
+                  "group relative rounded-2xl border p-5 flex flex-col transition shadow-lg " +
                   (agent.featured
-                    ? "bg-amber-50/30 border-amber-200 hover:border-amber-300"
-                    : "bg-white border-gray-200 hover:border-purple-200")
+                    ? "bg-zinc-900/80 border-purple-500/30 hover:border-purple-500/60 shadow-[0_0_15px_rgba(168,85,247,0.1)]"
+                    : "bg-[#0a0a0c]/60 backdrop-blur-md border-zinc-800/80 hover:border-purple-500/50")
                 }
               >
                 <div className="flex items-center gap-2.5 mb-3">
@@ -142,26 +142,26 @@ export default function AgentExplorer({
                       alt=""
                       width={32}
                       height={32}
-                      className="rounded-lg shrink-0 bg-white object-contain border border-gray-100 p-1"
+                      className="rounded-lg shrink-0 bg-zinc-800 object-contain border border-zinc-700/50 p-1"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
                     />
                   )}
-                  <h3 className="text-sm font-semibold text-gray-900 group-hover:text-purple-700 transition truncate">
+                  <h3 className="text-sm font-semibold text-zinc-100 group-hover:text-purple-400 transition truncate">
                     {agent.name}
                   </h3>
                 </div>
 
-                <p className="text-xs text-gray-600 mb-3 leading-snug line-clamp-2">
+                <p className="text-xs text-zinc-400 mb-3 leading-snug line-clamp-2">
                   {agent.tagline}
                 </p>
 
-                <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span className="inline-flex items-center rounded-full border border-purple-100 bg-purple-50 px-2.5 py-0.5 text-[11px] font-semibold text-purple-700">
+                <div className="mt-auto flex items-center justify-between pt-3 border-t border-zinc-800/80">
+                  <span className="inline-flex items-center rounded-full border border-purple-500/20 bg-purple-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-purple-400">
                     {agent.category}
                   </span>
-                  <span className="text-[11px] font-medium text-gray-700">
+                  <span className="text-[11px] font-medium text-zinc-400">
                     {agent.pricing}
                   </span>
                 </div>
@@ -171,7 +171,7 @@ export default function AgentExplorer({
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-gray-500 text-base mb-4">
+          <p className="text-zinc-500 text-base mb-4">
             No tools match your search.
           </p>
           <button
@@ -179,7 +179,7 @@ export default function AgentExplorer({
               setCategory("All");
               setQuery("");
             }}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 text-gray-600 text-[11px] font-medium px-3 py-1.5 transition"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 text-[11px] font-medium px-3 py-1.5 transition"
           >
             Clear filters
           </button>
