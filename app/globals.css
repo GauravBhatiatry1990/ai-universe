@@ -13,7 +13,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  /* Add a subtle glow/gradient to the background */
   background-image: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #09090b 80%);
   background-attachment: fixed;
   min-height: 100vh;
@@ -32,29 +31,4 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #a855f7;
-}import "tailwindcss";
-
-:root {
-  color-scheme: light;
-}
-
-html,
-body {
-  background-color: #F8FAFF;
-  color: #111827;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-image:
-    radial-gradient(circle at 15% 10%, rgba(139, 92, 246, 0.08), transparent 45%),
-    radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.06), transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.05), transparent 55%);
-  background-attachment: fixed;
-}
-
-::selection {
-  background: rgba(139, 92, 246, 0.25);
-  color: #111827;
 }
