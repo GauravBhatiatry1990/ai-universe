@@ -11,7 +11,6 @@ const NAV_ITEMS = [
   { label: "Categories", href: "/#categories", icon: "📂" },
   { label: "Free vs Paid", href: "/free-vs-paid", icon: "🎯" },
   { label: "Pricing", href: "/pricing", icon: "💎" },
-  { label: "Submit Tool", href: "/submit", icon: "➕" },
 ];
 
 export default function AppShell({
@@ -32,8 +31,7 @@ export default function AppShell({
   return (
     <div className="min-h-screen flex bg-[#F8FAFF]">
       {/* ─── SIDEBAR ─── */}
-      <aside className="hidden lg:flex flex-col w-60 shrink-0 border-r border-gray-200/70 bg-white/70 backdrop-blur-xl">
-        {/* Logo */}
+      <aside className="hidden lg:flex flex-col w-56 shrink-0 border-r border-gray-200/70 bg-white/70 backdrop-blur-xl">
         <div className="px-5 py-5 border-b border-gray-200/70">
           <Link href="/" className="flex items-center gap-2.5 group">
             <span className="relative flex h-7 w-7 items-center justify-center">
@@ -51,7 +49,6 @@ export default function AppShell({
           </Link>
         </div>
 
-        {/* Nav */}
         <nav className="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
           {NAV_ITEMS.map((item) => {
             const active = isActive(item.href);
@@ -76,44 +73,31 @@ export default function AppShell({
           })}
         </nav>
 
-        {/* Bottom CTA */}
         <div className="p-3 border-t border-gray-200/70">
-          <Link
-            href="/pricing"
-            className="block rounded-xl border border-purple-100 bg-gradient-to-br from-purple-50 via-white to-blue-50 p-4 hover:shadow-sm transition"
-          >
+          <div className="rounded-xl border border-purple-100 bg-gradient-to-br from-purple-50 via-white to-blue-50 p-3.5">
             <p className="text-[10px] font-bold text-purple-600 tracking-widest uppercase mb-1">
-              Go Pro
+              🧠 Coming soon
             </p>
-            <p className="text-xs font-semibold text-gray-900 mb-1 leading-snug">
-              Get featured placement
+            <p className="text-xs font-semibold text-gray-900 mb-0.5 leading-snug">
+              The Brain
             </p>
             <p className="text-[11px] text-gray-500 leading-snug">
-              From $49 · Backlink + logo
+              Visualize the entire AI ecosystem
             </p>
-          </Link>
+          </div>
         </div>
       </aside>
 
       {/* ─── MAIN AREA ─── */}
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Top bar */}
         <header className="sticky top-0 z-40 backdrop-blur-xl bg-white/70 border-b border-gray-200/70">
           <div className="flex items-center gap-3 px-4 lg:px-6 py-3">
-            {/* Mobile logo */}
-            <Link
-              href="/"
-              className="lg:hidden flex items-center gap-2 shrink-0"
-            >
+            <Link href="/" className="lg:hidden flex items-center gap-2 shrink-0">
               <span className="h-2 w-2 rounded-full bg-gradient-to-br from-purple-500 to-blue-500" />
               <span className="font-bold text-gray-900 text-sm">AI Universe</span>
             </Link>
 
-            {/* Search */}
-            <Link
-              href="/#tools"
-              className="flex-1 max-w-xl group hidden sm:block"
-            >
+            <Link href="/#tools" className="flex-1 max-w-xl group hidden sm:block">
               <div className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white/80 px-4 py-2 hover:border-purple-200 transition">
                 <span className="text-gray-400 text-sm">🔍</span>
                 <span className="text-sm text-gray-400 flex-1 truncate">
@@ -125,7 +109,6 @@ export default function AppShell({
               </div>
             </Link>
 
-            {/* Right actions */}
             <div className="ml-auto flex items-center gap-2">
               <button
                 aria-label="Notifications"
@@ -144,11 +127,9 @@ export default function AppShell({
           </div>
         </header>
 
-        {/* Content */}
         <div className="flex-1 flex min-w-0">
           <main className="flex-1 min-w-0">{children}</main>
 
-          {/* Right rail */}
           {rightRail && (
             <aside className="hidden xl:block w-80 shrink-0 border-l border-gray-200/70 bg-white/40 backdrop-blur-sm">
               <div className="sticky top-[57px] p-5 space-y-5 max-h-[calc(100vh-57px)] overflow-y-auto">
