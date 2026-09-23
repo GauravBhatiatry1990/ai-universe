@@ -65,11 +65,6 @@ function timeAgo(dateString: string): string {
   return `${Math.floor(diffHours / 24)}d ago`;
 }
 
-function scrollToTools(e: React.MouseEvent) {
-  e.preventDefault();
-  document.getElementById('tools')?.scrollIntoView({ behavior: 'smooth' });
-}
-
 export default function LivePulse() {
   const [trends, setTrends] = useState<Trend[]>([]);
   const [updates, setUpdates] = useState<NewsUpdate[]>([]);
@@ -145,17 +140,17 @@ export default function LivePulse() {
               <Link
                 key={tool.slug}
                 href={`/agent/${tool.slug}`}
-                className="flex items-center gap-2 py-1.5 group"
+                className="flex items-center gap-3 py-2 border-b border-gray-50 last:border-0 hover:bg-gray-50 rounded-lg px-1 transition group"
               >
-                <span className="w-3.5 text-[11px] font-bold text-gray-400">
+                <span className="w-4 text-[11px] font-bold text-gray-400 text-center shrink-0">
                   {i + 1}
                 </span>
-                <ToolLogo slug={tool.slug} size={18} />
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs font-semibold text-gray-900 group-hover:text-purple-600 transition truncate">
+                <ToolLogo slug={tool.slug} size={20} />
+                <div className="flex-1 min-w-0 flex flex-col justify-center">
+                  <div className="text-xs font-semibold text-gray-900 group-hover:text-purple-600 transition truncate leading-tight">
                     {tool.name}
                   </div>
-                  <div className="text-[10px] text-gray-400 truncate">
+                  <div className="text-[10px] text-gray-400 truncate leading-tight mt-0.5">
                     {tool.category}
                   </div>
                 </div>
@@ -181,12 +176,12 @@ export default function LivePulse() {
           </div>
         )}
 
-        <button
-          onClick={scrollToTools}
+        <Link
+          href="/trends"
           className="mt-3 block w-full text-center text-[11px] font-medium text-purple-600 hover:text-purple-700"
         >
           View full ranking →
-        </button>
+        </Link>
       </div>
 
       <div className="rounded-2xl border border-gray-200 bg-white p-4">
