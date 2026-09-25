@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import agents from "../data/agents.json";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
@@ -16,8 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "AI Universe — Discover the Best AI Tools",
-  description:
-    "The living brain of the AI ecosystem. Discover, compare, and choose from 46+ AI tools across chatbots, coding, image, video, audio, and more.",
+  description: `The living brain of the AI ecosystem. Discover, compare, and choose from ${agents.length}+ AI tools across chatbots, coding, image, video, audio, and more.`,
   keywords: [
     "AI tools",
     "AI directory",
@@ -28,8 +28,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "AI Universe — Discover the Best AI Tools",
-    description:
-      "The living brain of the AI ecosystem. Discover, compare, and choose from 46+ AI tools.",
+    description: `The living brain of the AI ecosystem. Discover, compare, and choose from ${agents.length}+ AI tools.`,
     type: "website",
   },
 };
