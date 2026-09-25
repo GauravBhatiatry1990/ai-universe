@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Parser from 'rss-parser';
 import { RSS_FEEDS } from '../../data/rssFeeds';
+import AppShell from '../../components/AppShell';
 
 export const revalidate = 3600; // refresh every 1 hour
 
@@ -76,27 +77,27 @@ export default async function NewsPage() {
   const articles = await getNews();
 
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-4xl mx-auto">
+    <AppShell>
+      <div className="px-4 lg:px-8 py-8 max-w-[1100px] mx-auto">
         <Link
           href="/"
-          className="text-purple-600 hover:text-purple-700 text-sm font-medium inline-block mb-6"
+          className="text-purple-400 hover:text-purple-300 text-sm font-medium inline-block mb-6 transition"
         >
           ← Back to all tools
         </Link>
 
         {/* Hero */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-200 bg-purple-50 text-purple-700 text-xs font-medium mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse" />
+        <div className="text-center mb-12 pt-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
             Live — Updated hourly
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
               AI News
             </span>
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-zinc-400">
             Latest AI stories from {RSS_FEEDS.length} trusted sources.
           </p>
         </div>
@@ -110,49 +111,49 @@ export default async function NewsPage() {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block rounded-2xl border border-gray-200 bg-white p-6 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-100/50 transition"
+                className="group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-purple-400/40 hover:shadow-lg hover:shadow-purple-500/10 transition"
               >
                 <div className="flex items-center gap-3 mb-3 text-xs">
-                  <span className="inline-block rounded-full border border-purple-200 bg-purple-50 px-2.5 py-0.5 font-medium text-purple-700">
+                  <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-0.5 font-medium text-purple-300">
                     {article.category}
                   </span>
-                  <span className="text-gray-500 font-medium">
+                  <span className="text-zinc-500 font-medium">
                     {article.source}
                   </span>
-                  <span className="text-gray-300">·</span>
-                  <span className="text-gray-400">
+                  <span className="text-zinc-600">·</span>
+                  <span className="text-zinc-400">
                     {timeAgo(article.pubDate)}
                   </span>
                 </div>
 
-                <h2 className="text-xl font-semibold text-gray-900 group-hover:text-purple-600 transition mb-2">
+                <h2 className="text-xl font-semibold text-white group-hover:text-purple-300 transition mb-2">
                   {article.title}
                 </h2>
 
                 {article.snippet && (
-                  <p className="text-sm text-gray-600 line-clamp-2">
+                  <p className="text-sm text-zinc-400 line-clamp-2">
                     {article.snippet}
                   </p>
                 )}
 
-                <span className="mt-3 inline-block text-sm text-purple-600 group-hover:text-purple-700 font-medium">
+                <span className="mt-3 inline-block text-sm text-purple-400 group-hover:text-purple-300 font-medium">
                   Read full story →
                 </span>
               </a>
             ))}
           </div>
         ) : (
-          <div className="rounded-2xl border border-gray-200 bg-white p-12 text-center">
-            <p className="text-gray-500">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-12 text-center">
+            <p className="text-zinc-400">
               Unable to load news right now. Try refreshing in a minute.
             </p>
           </div>
         )}
 
-        <p className="text-center text-xs text-gray-400 mt-12">
+        <p className="text-center text-xs text-zinc-500 mt-12">
           News sourced from public RSS feeds. Auto-refreshes every hour.
         </p>
       </div>
-    </main>
+    </AppShell>
   );
 }

@@ -21,7 +21,7 @@ export default function NewsletterSignup({
           name="email"
           required
           placeholder="you@example.com"
-          className="flex-1 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-purple-500/50 focus:outline-none"
+          className="flex-1 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-purple-500/50 focus:outline-none"
         />
         <button
           type="submit"
@@ -42,7 +42,7 @@ export default function NewsletterSignup({
         <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
           Get 5 new AI tools every Monday
         </h3>
-        <p className="text-sm text-gray-400 mb-5 max-w-md mx-auto">
+        <p className="text-sm text-zinc-400 mb-5 max-w-md mx-auto">
           Hand-picked tools, free alternatives, and one underrated pick. No
           spam. Unsubscribe anytime.
         </p>
@@ -58,7 +58,7 @@ export default function NewsletterSignup({
             name="email"
             required
             placeholder="you@example.com"
-            className="flex-1 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-purple-500/50 focus:outline-none"
+            className="flex-1 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white placeholder-zinc-600 focus:border-purple-500/50 focus:outline-none"
           />
           <button
             type="submit"

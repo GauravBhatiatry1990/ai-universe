@@ -44,7 +44,7 @@ function Stars({ count }: { count: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
-          className={i < count ? "text-amber-400" : "text-gray-200"}
+          className={i < count ? "text-amber-400" : "text-zinc-700"}
         >
           ★
         </span>
@@ -59,14 +59,14 @@ export default function CommunityReviews() {
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2">
           <span className="text-sm">💬</span>
-          <h2 className="text-sm font-bold text-gray-900 tracking-wide uppercase">
+          <h2 className="text-sm font-bold text-white tracking-wide uppercase">
             Community Reviews
           </h2>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-        <div className="divide-y divide-gray-100">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] shadow-sm overflow-hidden">
+        <div className="divide-y divide-white/5">
           {REVIEWS.map((r) => (
             <div key={r.id} className="flex items-start gap-3 px-5 py-4">
               <div
@@ -76,30 +76,30 @@ export default function CommunityReviews() {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 mb-1 flex-wrap">
-                  <span className="text-sm font-semibold text-gray-900">
+                  <span className="text-sm font-semibold text-white">
                     {r.name}
                   </span>
                   <Stars count={r.rating} />
                 </div>
-                <p className="text-xs text-gray-600 leading-relaxed">{r.text}</p>
+                <p className="text-xs text-zinc-400 leading-relaxed">{r.text}</p>
               </div>
-              <span className="text-[11px] text-gray-400 shrink-0">
+              <span className="text-[11px] text-zinc-500 shrink-0">
                 {r.time}
               </span>
             </div>
           ))}
         </div>
 
-        <div className="border-t border-gray-100 bg-gray-50/50 px-5 py-3 flex items-center justify-between gap-3 flex-wrap">
+        <div className="border-t border-white/10 bg-white/[0.02] px-5 py-3 flex items-center justify-between gap-3 flex-wrap">
           <button
             type="button"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-purple-200 bg-white hover:bg-purple-50 text-purple-700 text-[11px] font-semibold px-3 py-1.5 transition"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 text-[11px] font-semibold px-3 py-1.5 transition"
           >
             Sign in to write a review
           </button>
           <button
             type="button"
-            className="text-[11px] font-semibold text-purple-600 hover:text-purple-700"
+            className="text-[11px] font-semibold text-purple-400 hover:text-purple-300"
           >
             Load more reviews →
           </button>

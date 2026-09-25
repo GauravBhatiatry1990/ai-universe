@@ -47,64 +47,64 @@ export default function FreeVsPaidPage() {
 
   const sidebar = (
     <>
-      <div className="rounded-2xl bg-white border border-gray-200 p-5 shadow-sm">
+      <div className="rounded-2xl bg-white/[0.03] border border-white/10 p-5">
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-7 h-7 rounded-lg bg-purple-50 flex items-center justify-center text-sm">
+          <div className="w-7 h-7 rounded-lg bg-purple-500/10 flex items-center justify-center text-sm">
             🤖
           </div>
-          <h3 className="text-sm font-semibold text-gray-900">Quick Takeaways</h3>
+          <h3 className="text-sm font-semibold text-white">Quick Takeaways</h3>
         </div>
         <ul className="space-y-3">
           {QUICK_TAKEAWAYS.map((t, i) => (
             <li key={i} className="flex items-start gap-2.5">
-              <span className="w-4 h-4 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-600 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
+              <span className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                 ✓
               </span>
-              <span className="text-xs text-gray-600 leading-relaxed">{t}</span>
+              <span className="text-xs text-zinc-400 leading-relaxed">{t}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="rounded-2xl bg-white border border-gray-200 p-5 shadow-sm">
-        <h3 className="text-sm font-semibold text-gray-900 mb-4">At a Glance</h3>
+      <div className="rounded-2xl bg-white/[0.03] border border-white/10 p-5">
+        <h3 className="text-sm font-semibold text-white mb-4">At a Glance</h3>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <div className="text-2xl font-bold text-gray-900 mb-0.5">{totalFree}</div>
-            <div className="flex items-center gap-1.5 text-[11px] text-gray-500">
+            <div className="text-2xl font-bold text-white mb-0.5">{totalFree}</div>
+            <div className="flex items-center gap-1.5 text-[11px] text-zinc-500">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               Free tools
             </div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-gray-900 mb-0.5">{totalPaid}</div>
-            <div className="flex items-center gap-1.5 text-[11px] text-gray-500">
+            <div className="text-2xl font-bold text-white mb-0.5">{totalPaid}</div>
+            <div className="flex items-center gap-1.5 text-[11px] text-zinc-500">
               <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
               Paid tools
             </div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-gray-900 mb-0.5">{cases.length}</div>
-            <div className="text-[11px] text-gray-500">Use cases</div>
+            <div className="text-2xl font-bold text-white mb-0.5">{cases.length}</div>
+            <div className="text-[11px] text-zinc-500">Use cases</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-gray-900 mb-0.5">∞</div>
-            <div className="text-[11px] text-gray-500">Possibilities</div>
+            <div className="text-2xl font-bold text-white mb-0.5">∞</div>
+            <div className="text-[11px] text-zinc-500">Possibilities</div>
           </div>
         </div>
       </div>
 
-      <div className="rounded-2xl bg-gradient-to-br from-purple-50 via-white to-blue-50 border border-purple-100 p-5">
+      <div className="rounded-2xl bg-gradient-to-br from-purple-500/10 via-white/[0.02] to-blue-500/10 border border-purple-500/20 p-5">
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-purple-500">✨</span>
-          <h3 className="text-sm font-semibold text-gray-900">
+          <span className="text-purple-400">✨</span>
+          <h3 className="text-sm font-semibold text-white">
             Not sure which to choose?
           </h3>
         </div>
-        <p className="text-xs text-gray-600 leading-relaxed mb-4">
+        <p className="text-xs text-zinc-400 leading-relaxed mb-4">
           Answer a few quick questions and we&apos;ll recommend the AI tools that fit your needs.
         </p>
-        <button className="w-full rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white text-xs font-semibold px-4 py-2.5 transition shadow-sm shadow-purple-200">
+        <button className="w-full rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white text-xs font-semibold px-4 py-2.5 transition shadow-sm shadow-purple-500/20">
           Take the quiz →
         </button>
       </div>
@@ -115,16 +115,16 @@ export default function FreeVsPaidPage() {
     <AppShell rightRail={sidebar}>
       <div className="px-4 lg:px-8 py-8 max-w-[1100px] mx-auto">
         <section className="mb-8 pt-4">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-700 text-[11px] font-semibold mb-4">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-[11px] font-semibold mb-4">
             {cases.length} use cases
           </div>
-          <h1 className="text-4xl md:text-[44px] font-semibold tracking-tight leading-tight text-gray-900 mb-3">
+          <h1 className="text-4xl md:text-[44px] font-semibold tracking-tight leading-tight text-white mb-3">
             Free vs Paid AI
           </h1>
-          <p className="text-base text-gray-600 mb-1">
+          <p className="text-base text-zinc-400 mb-1">
             For every task, compare the free option with the paid upgrade.
           </p>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-zinc-500">
             Find the right balance of features, limits and value — all in one place.
           </p>
         </section>
@@ -140,8 +140,8 @@ export default function FreeVsPaidPage() {
                   className={
                     "flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition " +
                     (isActive
-                      ? "bg-white text-purple-700 border border-purple-200 shadow-sm"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-white/60 border border-transparent")
+                      ? "bg-white/[0.06] text-purple-300 border border-purple-500/30 shadow-sm"
+                      : "text-zinc-400 hover:text-white hover:bg-white/5 border border-transparent")
                   }
                 >
                   <span className="text-xs opacity-80">{uc.icon}</span>
@@ -153,36 +153,36 @@ export default function FreeVsPaidPage() {
         </section>
 
         <section className="mb-6">
-          <div className="rounded-2xl bg-white border border-gray-200 shadow-sm overflow-hidden">
-            <div className="flex items-start gap-4 px-6 py-5 border-b border-gray-100">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center text-lg shrink-0">
+          <div className="rounded-2xl bg-white/[0.03] border border-white/10 shadow-sm overflow-hidden">
+            <div className="flex items-start gap-4 px-6 py-5 border-b border-white/10">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center text-lg shrink-0">
                 {active.icon}
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="text-lg font-semibold text-gray-900 mb-0.5">
+                <h2 className="text-lg font-semibold text-white mb-0.5">
                   {active.title}
                 </h2>
-                <p className="text-sm text-gray-500">{active.description}</p>
+                <p className="text-sm text-zinc-500">{active.description}</p>
               </div>
-              <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 border border-rose-100 text-rose-700 text-[11px] font-semibold px-2.5 py-1 whitespace-nowrap">
+              <span className="inline-flex items-center gap-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-[11px] font-semibold px-2.5 py-1 whitespace-nowrap">
                 🔥 Popular
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
               <div>
-                <div className="px-6 py-3.5 bg-emerald-50/50 border-b border-emerald-100 flex items-center justify-between">
+                <div className="px-6 py-3.5 bg-emerald-500/10 border-b border-emerald-500/20 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="text-sm font-bold text-emerald-700 tracking-wide">
+                    <span className="text-sm font-bold text-emerald-300 tracking-wide">
                       FREE
                     </span>
                   </div>
-                  <span className="text-[11px] text-emerald-700">
+                  <span className="text-[11px] text-emerald-300/80">
                     Great for everyday use
                   </span>
                 </div>
-                <div className="divide-y divide-gray-100">
+                <div className="divide-y divide-white/5">
                   {active.freePicks.map((slug) => {
                     const agent = findAgent(slug);
                     if (!agent) return null;
@@ -191,19 +191,19 @@ export default function FreeVsPaidPage() {
                       <Link
                         key={slug}
                         href={`/agent/${agent.slug}`}
-                        className="group block px-6 py-4 hover:bg-gray-50/70 transition"
+                        className="group block px-6 py-4 hover:bg-white/[0.03] transition"
                       >
                         <div className="flex items-start gap-3">
                           <ToolLogo
                             slug={agent.slug}
                             size={36}
-                            className="rounded-lg border border-gray-100 p-0.5 mt-0.5"
+                            className="rounded-lg border border-white/10 p-0.5 mt-0.5"
                           />
                           <div className="flex-1 min-w-0">
-                            <span className="font-semibold text-sm text-gray-900 group-hover:text-emerald-700 transition">
+                            <span className="font-semibold text-sm text-white group-hover:text-emerald-300 transition">
                               {agent.name}
                             </span>
-                            <p className="text-xs text-gray-600 mb-2 leading-snug line-clamp-2">
+                            <p className="text-xs text-zinc-400 mb-2 leading-snug line-clamp-2">
                               {agent.tagline}
                             </p>
                             {features.length > 0 && (
@@ -211,19 +211,19 @@ export default function FreeVsPaidPage() {
                                 {features.map((f) => (
                                   <span
                                     key={f}
-                                    className="inline-flex items-center gap-1 text-[11px] text-gray-500"
+                                    className="inline-flex items-center gap-1 text-[11px] text-zinc-500"
                                   >
-                                    <span className="text-emerald-500">✓</span>
+                                    <span className="text-emerald-400">✓</span>
                                     <span className="truncate max-w-[140px]">{f}</span>
                                   </span>
                                 ))}
                               </div>
                             )}
-                            <div className="text-[11px] font-medium text-gray-700">
+                            <div className="text-[11px] font-medium text-zinc-300">
                               {agent.pricing}
                             </div>
                           </div>
-                          <span className="text-gray-300 group-hover:text-emerald-500 transition shrink-0 mt-1">
+                          <span className="text-zinc-600 group-hover:text-emerald-400 transition shrink-0 mt-1">
                             →
                           </span>
                         </div>
@@ -234,18 +234,18 @@ export default function FreeVsPaidPage() {
               </div>
 
               <div>
-                <div className="px-6 py-3.5 bg-purple-50/50 border-b border-purple-100 flex items-center justify-between">
+                <div className="px-6 py-3.5 bg-purple-500/10 border-b border-purple-500/20 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-purple-500" />
-                    <span className="text-sm font-bold text-purple-700 tracking-wide">
+                    <span className="text-sm font-bold text-purple-300 tracking-wide">
                       PAID
                     </span>
                   </div>
-                  <span className="text-[11px] text-purple-700">
+                  <span className="text-[11px] text-purple-300/80">
                     More features, higher limits
                   </span>
                 </div>
-                <div className="divide-y divide-gray-100">
+                <div className="divide-y divide-white/5">
                   {active.paidPicks.map((slug) => {
                     const agent = findAgent(slug);
                     if (!agent) return null;
@@ -254,19 +254,19 @@ export default function FreeVsPaidPage() {
                       <Link
                         key={slug}
                         href={`/agent/${agent.slug}`}
-                        className="group block px-6 py-4 hover:bg-gray-50/70 transition"
+                        className="group block px-6 py-4 hover:bg-white/[0.03] transition"
                       >
                         <div className="flex items-start gap-3">
                           <ToolLogo
                             slug={agent.slug}
                             size={36}
-                            className="rounded-lg border border-gray-100 p-0.5 mt-0.5"
+                            className="rounded-lg border border-white/10 p-0.5 mt-0.5"
                           />
                           <div className="flex-1 min-w-0">
-                            <span className="font-semibold text-sm text-gray-900 group-hover:text-purple-700 transition">
+                            <span className="font-semibold text-sm text-white group-hover:text-purple-300 transition">
                               {agent.name}
                             </span>
-                            <p className="text-xs text-gray-600 mb-2 leading-snug line-clamp-2">
+                            <p className="text-xs text-zinc-400 mb-2 leading-snug line-clamp-2">
                               {agent.tagline}
                             </p>
                             {features.length > 0 && (
@@ -274,19 +274,19 @@ export default function FreeVsPaidPage() {
                                 {features.map((f) => (
                                   <span
                                     key={f}
-                                    className="inline-flex items-center gap-1 text-[11px] text-gray-500"
+                                    className="inline-flex items-center gap-1 text-[11px] text-zinc-500"
                                   >
-                                    <span className="text-purple-500">✓</span>
+                                    <span className="text-purple-400">✓</span>
                                     <span className="truncate max-w-[140px]">{f}</span>
                                   </span>
                                 ))}
                               </div>
                             )}
-                            <div className="text-[11px] font-medium text-gray-700">
+                            <div className="text-[11px] font-medium text-zinc-300">
                               {agent.pricing}
                             </div>
                           </div>
-                          <span className="text-gray-300 group-hover:text-purple-500 transition shrink-0 mt-1">
+                          <span className="text-zinc-600 group-hover:text-purple-400 transition shrink-0 mt-1">
                             →
                           </span>
                         </div>
@@ -297,15 +297,15 @@ export default function FreeVsPaidPage() {
               </div>
             </div>
 
-            <div className="border-t border-gray-100 bg-gradient-to-r from-purple-50/40 via-white to-blue-50/40 px-6 py-4 flex items-start gap-3">
-              <div className="w-8 h-8 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                <span className="text-amber-500 text-sm">💡</span>
+            <div className="border-t border-white/10 bg-gradient-to-r from-purple-500/[0.06] via-transparent to-blue-500/[0.06] px-6 py-4 flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                <span className="text-amber-400 text-sm">💡</span>
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+                <div className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider mb-1">
                   Our Verdict
                 </div>
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-sm text-zinc-300 leading-relaxed">
                   {active.verdict}
                 </p>
               </div>
@@ -318,25 +318,25 @@ export default function FreeVsPaidPage() {
               e.preventDefault();
               setActiveIdx((activeIdx + 1) % cases.length);
             }}
-            className="mt-4 block rounded-2xl bg-white border border-gray-200 hover:border-purple-200 transition px-6 py-4 group shadow-sm"
+            className="mt-4 block rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-400/40 transition px-6 py-4 group shadow-sm"
           >
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-lg shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center text-lg shrink-0">
                 {nextCase.icon}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-semibold text-gray-900 group-hover:text-purple-700 transition">
+                <div className="text-sm font-semibold text-white group-hover:text-purple-300 transition">
                   {nextCase.title}
                 </div>
-                <div className="text-xs text-gray-500 truncate">
+                <div className="text-xs text-zinc-500 truncate">
                   {nextCase.description}
                 </div>
               </div>
               <div className="flex items-center gap-2 shrink-0">
-                <span className="text-[11px] text-gray-400">
+                <span className="text-[11px] text-zinc-500">
                   {activeIdx + 2} of {cases.length}
                 </span>
-                <span className="text-gray-300 group-hover:text-purple-500 transition">
+                <span className="text-zinc-600 group-hover:text-purple-400 transition">
                   →
                 </span>
               </div>

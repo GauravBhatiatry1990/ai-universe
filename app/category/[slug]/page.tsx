@@ -2,6 +2,7 @@ import agents from '../../../data/agents.json';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ToolLogo from '../../../components/ToolLogo';
+import AppShell from '../../../components/AppShell';
 
 type Agent = {
   id: number | string;
@@ -55,25 +56,25 @@ export default async function CategoryPage({
     .sort();
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
+    <AppShell>
+      <div className="px-4 lg:px-8 py-8 max-w-[1100px] mx-auto">
         <Link
           href="/"
-          className="text-purple-600 hover:text-purple-700 text-sm font-medium inline-block mb-6"
+          className="text-purple-400 hover:text-purple-300 text-sm font-medium inline-block mb-6 transition"
         >
           ← Back to all tools
         </Link>
 
         <div className="text-center mb-10">
-          <p className="text-xs font-semibold text-purple-600 mb-2 tracking-wider uppercase">
+          <p className="text-xs font-semibold text-purple-400 mb-2 tracking-wider uppercase">
             Category
           </p>
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
               {matchedCategory}
             </span>
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-zinc-400">
             {tools.length} tool{tools.length !== 1 ? 's' : ''} in this category
           </p>
         </div>
@@ -86,14 +87,14 @@ export default async function CategoryPage({
               className={
                 "group rounded-2xl border p-6 flex flex-col transition " +
                 (agent.featured
-                  ? "bg-amber-50/40 border-amber-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-100"
-                  : "bg-white border-gray-200 hover:border-purple-200 hover:shadow-lg hover:shadow-purple-100/50")
+                  ? "bg-amber-500/10 border-amber-500/30 hover:border-amber-400/50 hover:shadow-lg hover:shadow-amber-500/10"
+                  : "bg-white/[0.03] border-white/10 hover:border-purple-400/40 hover:shadow-lg hover:shadow-purple-500/10")
               }
             >
               <div className="flex justify-between items-start mb-3 gap-2">
                 <div className="flex items-center gap-2.5 min-w-0">
                   <ToolLogo slug={agent.slug} size={28} />
-                  <h2 className="text-lg font-semibold text-gray-900 group-hover:text-purple-600 transition truncate">
+                  <h2 className="text-lg font-semibold text-white group-hover:text-purple-300 transition truncate">
                     {agent.name}
                   </h2>
                 </div>
@@ -104,7 +105,7 @@ export default async function CategoryPage({
                 )}
               </div>
 
-              <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+              <p className="text-zinc-400 mb-4 text-sm leading-relaxed">
                 {agent.tagline}
               </p>
 
@@ -113,9 +114,9 @@ export default async function CategoryPage({
                   {agent.features.slice(0, 2).map((f) => (
                     <li
                       key={f}
-                      className="flex items-start gap-2 text-xs text-gray-600"
+                      className="flex items-start gap-2 text-xs text-zinc-400"
                     >
-                      <span className="text-blue-500 mt-0.5">✓</span>
+                      <span className="text-purple-400 mt-0.5">✓</span>
                       <span className="line-clamp-1">{f}</span>
                     </li>
                   ))}
@@ -123,23 +124,23 @@ export default async function CategoryPage({
               )}
 
               {agent.bestFor && (
-                <p className="text-xs text-gray-500 italic mb-4 line-clamp-2">
+                <p className="text-xs text-zinc-500 italic mb-4 line-clamp-2">
                   Best for: {agent.bestFor}
                 </p>
               )}
 
               <div className="mt-auto flex items-center justify-between pt-2">
-                <span className="inline-block rounded-full border border-purple-200 bg-purple-50 px-2.5 py-1 text-xs font-medium text-purple-700">
+                <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 text-xs font-medium text-purple-300">
                   {agent.category}
                 </span>
-                <span className="text-xs text-gray-500">{agent.pricing}</span>
+                <span className="text-xs text-zinc-500">{agent.pricing}</span>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="rounded-2xl border border-gray-200 bg-white p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <h2 className="text-lg font-semibold text-white mb-4">
             Explore other categories
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -147,7 +148,7 @@ export default async function CategoryPage({
               <Link
                 key={c}
                 href={`/category/${slugify(c)}`}
-                className="rounded-full border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 text-sm px-4 py-1.5 transition"
+                className="rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] text-zinc-300 hover:text-white text-sm px-4 py-1.5 transition"
               >
                 {c}
               </Link>
@@ -155,6 +156,6 @@ export default async function CategoryPage({
           </div>
         </div>
       </div>
-    </main>
+    </AppShell>
   );
 }

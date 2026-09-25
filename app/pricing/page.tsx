@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AppShell from '../../components/AppShell';
 
 type Plan = {
   name: string;
@@ -79,27 +80,27 @@ const PLANS: Plan[] = [
 
 export default function PricingPage() {
   return (
-    <main className="min-h-screen p-8">
-      <div className="max-w-6xl mx-auto">
+    <AppShell>
+      <div className="px-4 lg:px-8 py-8 max-w-[1100px] mx-auto">
         <Link
           href="/"
-          className="text-purple-600 hover:text-purple-700 text-sm font-medium inline-block mb-6"
+          className="text-purple-400 hover:text-purple-300 text-sm font-medium inline-block mb-6 transition"
         >
           ← Back to home
         </Link>
 
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-200 bg-purple-50 text-purple-700 text-xs font-medium mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-xs font-medium mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
             Get discovered by the AI community
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
               Simple, honest pricing
             </span>
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             List your AI tool for free — forever. Upgrade only when you want
             more visibility.
           </p>
@@ -113,8 +114,8 @@ export default function PricingPage() {
               className={
                 'relative rounded-2xl border p-6 flex flex-col transition ' +
                 (plan.highlight
-                  ? 'border-purple-300 bg-gradient-to-b from-purple-50/60 to-white shadow-lg shadow-purple-100/50'
-                  : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md')
+                  ? 'border-purple-400/50 bg-gradient-to-b from-purple-500/[0.08] to-white/[0.02] shadow-lg shadow-purple-500/10'
+                  : 'border-white/10 bg-white/[0.03] hover:border-white/20 hover:shadow-md')
               }
             >
               {plan.badge && (
@@ -123,20 +124,20 @@ export default function PricingPage() {
                 </span>
               )}
 
-              <h2 className="text-lg font-bold text-gray-900 mb-1">
+              <h2 className="text-lg font-bold text-white mb-1">
                 {plan.name}
               </h2>
 
               <div className="flex items-baseline gap-1 mb-3">
-                <span className="text-3xl font-black text-gray-900">
+                <span className="text-3xl font-black text-white">
                   {plan.price}
                 </span>
                 {plan.period && (
-                  <span className="text-sm text-gray-500">{plan.period}</span>
+                  <span className="text-sm text-zinc-500">{plan.period}</span>
                 )}
               </div>
 
-              <p className="text-sm text-gray-600 mb-5 min-h-[40px]">
+              <p className="text-sm text-zinc-400 mb-5 min-h-[40px]">
                 {plan.tagline}
               </p>
 
@@ -145,8 +146,8 @@ export default function PricingPage() {
                 className={
                   'block text-center rounded-lg px-4 py-2.5 text-sm font-semibold transition mb-5 ' +
                   (plan.highlight
-                    ? 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white shadow-md shadow-purple-200'
-                    : 'border border-gray-300 bg-white hover:bg-gray-50 text-gray-900')
+                    ? 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white shadow-md shadow-purple-500/20'
+                    : 'border border-white/15 bg-white/5 hover:bg-white/10 text-white')
                 }
               >
                 {plan.cta}
@@ -156,9 +157,9 @@ export default function PricingPage() {
                 {plan.features.map((f) => (
                   <li
                     key={f}
-                    className="flex items-start gap-2 text-xs text-gray-700"
+                    className="flex items-start gap-2 text-xs text-zinc-300"
                   >
-                    <span className="text-purple-500 mt-0.5 font-bold">✓</span>
+                    <span className="text-purple-400 mt-0.5 font-bold">✓</span>
                     <span>{f}</span>
                   </li>
                 ))}
@@ -169,7 +170,7 @@ export default function PricingPage() {
 
         {/* FAQ */}
         <div className="max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
+          <h2 className="text-3xl font-bold text-white text-center mb-8">
             Common questions
           </h2>
           <div className="space-y-4">
@@ -197,34 +198,34 @@ export default function PricingPage() {
             ].map((item) => (
               <div
                 key={item.q}
-                className="rounded-xl border border-gray-200 bg-white p-5"
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-5"
               >
-                <h3 className="font-semibold text-gray-900 mb-1.5">
+                <h3 className="font-semibold text-white mb-1.5">
                   {item.q}
                 </h3>
-                <p className="text-sm text-gray-600">{item.a}</p>
+                <p className="text-sm text-zinc-400">{item.a}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Final CTA */}
-        <div className="rounded-2xl border border-gray-200 bg-gradient-to-br from-purple-50 via-white to-blue-50 p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
+        <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-purple-500/10 via-white/[0.02] to-blue-500/10 p-8 md:p-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
             Not sure which plan fits?
           </h2>
-          <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+          <p className="text-zinc-400 mb-6 max-w-xl mx-auto">
             Start with the free listing. Upgrade anytime once you see the
             results.
           </p>
           <Link
             href="/submit"
-            className="inline-block rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold px-8 py-3 transition shadow-lg shadow-purple-200"
+            className="inline-block rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold px-8 py-3 transition shadow-lg shadow-purple-500/20"
           >
             Submit your tool free →
           </Link>
         </div>
       </div>
-    </main>
+    </AppShell>
   );
 }
