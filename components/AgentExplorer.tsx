@@ -3,16 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { getLogoUrl } from '../data/toolDomains';
-
-function slugify(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/&/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-}
+import { slugify } from '../lib/slugify';
 
 type Agent = {
   id: number | string;

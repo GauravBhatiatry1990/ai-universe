@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ToolLogo from '../../../components/ToolLogo';
 import AppShell from '../../../components/AppShell';
+import { slugify } from '../../../lib/slugify';
 
 type Agent = {
   id: number | string;
@@ -15,16 +16,6 @@ type Agent = {
   bestFor?: string;
   features?: string[];
 };
-
-function slugify(str: string): string {
-  return str
-    .toLowerCase()
-    .replace(/&/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-}
 
 export function generateStaticParams() {
   const categories = Array.from(
