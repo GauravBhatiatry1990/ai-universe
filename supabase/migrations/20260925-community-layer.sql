@@ -85,3 +85,5 @@ group by slug;
 grant usage on schema public to anon, authenticated;
 grant select on public.profiles, public.reviews, public.favorites, public.tool_stats
   to anon, authenticated;
+grant insert, update, delete on public.profiles, public.reviews, public.favorites
+  to authenticated;

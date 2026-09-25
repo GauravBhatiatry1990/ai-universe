@@ -20,7 +20,9 @@ export default function FavoriteButton({ slug, initialFavorited }: Props) {
     setError('');
     const target = !favorited;
     setFavorited(target);
-    const result = target ? await addFavorite(slug) : await removeFavorite(slug);
+    const result = target
+      ? await addFavorite(slug, user!.id)
+      : await removeFavorite(slug, user!.id);
     setSubmitting(false);
     if (!result.ok) {
       setFavorited(!target);

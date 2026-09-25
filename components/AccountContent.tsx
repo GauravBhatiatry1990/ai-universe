@@ -57,7 +57,7 @@ export default function AccountContent({
 
   const handleRemoveFavorite = async (slug: string) => {
     setError('');
-    const result = await removeFavorite(slug);
+    const result = await removeFavorite(slug, userId);
     if (!result.ok) {
       setError(result.message);
       return;
