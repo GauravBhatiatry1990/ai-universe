@@ -59,7 +59,12 @@ export default function AgentReviews({ slug, reviews, stats, myReview }: Props) 
 
       <div className="border-t border-white/10 bg-white/[0.02] px-5 py-4">
         {loading ? null : user ? (
-          <ReviewForm key={myReview?.id ?? 'new'} slug={slug} myReview={myReview} />
+          <ReviewForm
+            key={myReview?.id ?? 'new'}
+            slug={slug}
+            myReview={myReview}
+            userId={user.id}
+          />
         ) : (
           <Link
             href={`/login?next=/agent/${slug}#reviews`}

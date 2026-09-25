@@ -6,7 +6,7 @@ import type { FormEvent } from 'react';
 import { upsertReview, deleteReview } from '../lib/reviews-client';
 import type { MyReview } from '../lib/reviews';
 
-type Props = { slug: string; myReview: MyReview | null };
+type Props = { slug: string; myReview: MyReview | null; userId: string };
 
 function StarPicker({
   value,
@@ -35,7 +35,7 @@ function StarPicker({
   );
 }
 
-export default function ReviewForm({ slug, myReview }: Props) {
+export default function ReviewForm({ slug, myReview, userId }: Props) {
   const router = useRouter();
   const [rating, setRating] = useState(myReview?.rating ?? 0);
   const [comment, setComment] = useState(myReview?.comment ?? '');
@@ -50,7 +50,7 @@ export default function ReviewForm({ slug, myReview }: Props) {
     }
     setSubmitting(true);
     setError('');
-    const result = await upsertReview({ slug, rating, comment: comment.trim() });
+    const result = await upsertReview({ userId, slug, rating, comment: comment.trim() });
     setSubmitting(false);
     if (!result.ok) {
       setError(result.message);

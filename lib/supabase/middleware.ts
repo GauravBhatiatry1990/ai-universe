@@ -21,6 +21,10 @@ export async function updateSessionCookie(
         return request.cookies.getAll();
       },
       setAll(cookiesToSet, headers) {
+        console.warn(
+          '[BUG2-DIAGNOSTIC] proxy session cookie write',
+          cookiesToSet.map(({ name }) => name)
+        );
         cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
         supabaseResponse = NextResponse.next({ request });
         cookiesToSet.forEach(({ name, value, options }) =>
