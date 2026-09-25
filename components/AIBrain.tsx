@@ -98,7 +98,7 @@ export default function AIBrain() {
         aria-label="Open AI Brain"
         title="Open AI Brain"
         onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 z-50 shadow-lg transition hover:scale-105 active:scale-95"
+        className="fixed bottom-4 right-4 z-[9999] shadow-lg transition hover:scale-105 active:scale-95"
       >
         <Sparkles size={20} />
       </IconButton>
@@ -107,7 +107,7 @@ export default function AIBrain() {
         <div
           role="dialog"
           aria-label="AI Brain chat"
-          className="fixed bottom-24 right-4 z-50 h-[600px] max-h-[calc(100vh-7rem)] w-[400px] max-w-[calc(100vw-2rem)]"
+          className="fixed bottom-24 right-4 z-[9998] h-[600px] max-h-[calc(100vh-7rem)] w-[400px] max-w-[calc(100vw-2rem)]"
         >
           <Card size="3" variant="classic" className="overflow-hidden" style={{ height: "100%" }}>
             <Flex direction="column" style={{ height: "100%" }}>
