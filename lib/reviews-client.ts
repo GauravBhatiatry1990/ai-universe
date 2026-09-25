@@ -17,24 +17,7 @@ export async function upsertReview(input: {
     },
     { onConflict: 'user_id,slug' }
   );
-  if (error) {
-    const { data } = await supabase.auth.getSession();
-    const session = data.session;
-    console.warn('[BUG2-DIAGNOSTIC] review upsert failed', {
-      message: error.message,
-      code: error.code,
-      sessionPresent: Boolean(session),
-      tokenExpired: session ? Date.now() >= (session.expires_at ?? 0) * 1000 : null,
-      sbCookies:
-        typeof document !== 'undefined'
-          ? document.cookie
-              .split(';')
-              .map((c) => c.split('=')[0].trim())
-              .filter((n) => n.includes('sb-'))
-          : [],
-    });
-    return { ok: false, message: error.message };
-  }
+  if (error) return { ok: false, message: error.message };
   return { ok: true, message: '' };
 }
 

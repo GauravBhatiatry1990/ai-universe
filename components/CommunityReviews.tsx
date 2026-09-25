@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import { getLatestReviews } from '../lib/reviews';
 import { getAgentMeta } from '../lib/agentLookup';
+import { getCurrentUser } from '../lib/supabase/auth';
 import Stars from './Stars';
 import { formatRelativeTime } from '../lib/time';
 import { initialsOf } from '../lib/initials';
 
 export default async function CommunityReviews() {
   const reviews = await getLatestReviews(3);
+  const user = await getCurrentUser();
 
   return (
     <section>
@@ -23,7 +25,9 @@ export default async function CommunityReviews() {
         <div className="divide-y divide-white/5">
           {reviews.length === 0 && (
             <p className="px-5 py-8 text-center text-sm text-zinc-500">
-              No reviews yet — share your experience by signing in.
+              {user
+                ? 'No reviews yet — write the first one.'
+                : 'No reviews yet — share your experience by signing in.'}
             </p>
           )}
           {reviews.map((r) => {
@@ -61,12 +65,21 @@ export default async function CommunityReviews() {
         </div>
 
         <div className="border-t border-white/10 bg-white/[0.02] px-5 py-3">
-          <Link
-            href="/login"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm font-semibold text-purple-300 transition hover:bg-purple-500/20"
-          >
-            Sign in to write a review →
-          </Link>
+          {user ? (
+            <Link
+              href="/#tools"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm font-semibold text-purple-300 transition hover:bg-purple-500/20"
+            >
+              Write a review →
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm font-semibold text-purple-300 transition hover:bg-purple-500/20"
+            >
+              Sign in to write a review →
+            </Link>
+          )}
         </div>
       </div>
     </section>

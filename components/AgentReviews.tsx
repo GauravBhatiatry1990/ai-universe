@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { useAuth } from './AuthProvider';
 import Stars from './Stars';
 import ReviewForm from './ReviewForm';
 import { formatRelativeTime } from '../lib/time';
@@ -13,11 +12,10 @@ type Props = {
   reviews: ReviewRow[];
   stats: ToolStats;
   myReview: MyReview | null;
+  userId: string | null;
 };
 
-export default function AgentReviews({ slug, reviews, stats, myReview }: Props) {
-  const { user, loading } = useAuth();
-
+export default function AgentReviews({ slug, reviews, stats, myReview, userId }: Props) {
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-sm">
       {stats.review_count > 0 && (
@@ -58,12 +56,12 @@ export default function AgentReviews({ slug, reviews, stats, myReview }: Props) 
       </div>
 
       <div className="border-t border-white/10 bg-white/[0.02] px-5 py-4">
-        {loading ? null : user ? (
+        {userId ? (
           <ReviewForm
             key={myReview?.id ?? 'new'}
             slug={slug}
             myReview={myReview}
-            userId={user.id}
+            userId={userId}
           />
         ) : (
           <Link

@@ -184,6 +184,7 @@ export default async function AgentPage({
           reviews={reviews}
           stats={stats}
           myReview={myReview}
+          userId={user?.id ?? null}
         />
       ),
     },
