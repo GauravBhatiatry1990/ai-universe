@@ -4,6 +4,7 @@ import agents from "../data/agents.json";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import AIBrain from "../components/AIBrain";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <Theme appearance="dark" accentColor="gray" radius="medium">
           {children}
+          <AIBrain />
         </Theme>
       </body>
     </html>
