@@ -100,6 +100,12 @@ export default async function AgentPage({
               Visit {agent.name} →
             </a>
           )}
+          <Link
+            href={`/claim/${agent.slug}`}
+            className="inline-block rounded-lg border border-purple-500/40 text-purple-300 hover:bg-purple-500/10 hover:text-purple-200 font-semibold px-6 py-3 transition"
+          >
+            Claim this Profile
+          </Link>
         </div>
 
         {/* Features */}

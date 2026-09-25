@@ -1,0 +1,1 @@
+export const SITE_CONTACT_EMAIL = 'gauravbhatia2190@gmail.com';
