@@ -8,6 +8,9 @@ import AgentTabs from '../../../components/AgentTabs';
 import type { TabSection } from '../../../components/AgentTabs';
 import AgentReviews from '../../../components/AgentReviews';
 import SponsoredBadge from '../../../components/SponsoredBadge';
+import FavoriteButton from '../../../components/FavoriteButton';
+import { getCurrentUser } from '../../../lib/supabase/auth';
+import { getIsFavorite } from '../../../lib/favorites';
 
 type Agent = {
   id: number | string;
@@ -37,6 +40,11 @@ export default async function AgentPage({
   if (!agent) {
     notFound();
   }
+
+  const user = await getCurrentUser();
+  const isFavorite = user
+    ? await getIsFavorite(agent.slug, user.id)
+    : false;
 
   const alternatives =
     agent.alternatives
@@ -273,6 +281,7 @@ export default async function AgentPage({
             >
               Claim this Profile
             </Link>
+            <FavoriteButton slug={agent.slug} initialFavorited={isFavorite} />
           </div>
         </div>
 
