@@ -6,7 +6,7 @@ export type MatchAgent = {
   tagline?: string;
   category: string;
   pricing?: string;
-  difficulty?: DifficultyLevel;
+  difficulty?: string;
   featured?: boolean;
   url?: string;
 };
@@ -55,7 +55,9 @@ export function parsePricing(pricing: string = ''): { free: boolean; cheapestPai
 const SKILL_INDEX: Record<DifficultyLevel, number> = { beginner: 0, intermediate: 1, expert: 2 };
 
 export function skillPoints(tool: MatchAgent, chosen: DifficultyLevel): number {
-  const level: DifficultyLevel = tool.difficulty ?? 'intermediate';
+  const raw = tool.difficulty;
+  const level: DifficultyLevel =
+    raw === 'beginner' || raw === 'intermediate' || raw === 'expert' ? raw : 'intermediate';
   const diff = Math.abs(SKILL_INDEX[level] - SKILL_INDEX[chosen]);
   return 3 - diff;
 }
