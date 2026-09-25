@@ -93,15 +93,27 @@ export default function CommunityReviews() {
         <div className="border-t border-white/10 bg-white/[0.02] px-5 py-3 flex items-center justify-between gap-3 flex-wrap">
           <button
             type="button"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 text-[11px] font-semibold px-3 py-1.5 transition"
+            disabled
+            aria-disabled="true"
+            title="Coming soon"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 text-purple-300 text-[11px] font-semibold px-3 py-1.5 transition disabled:cursor-not-allowed disabled:opacity-60"
           >
             Sign in to write a review
+            <span className="rounded-full border border-purple-500/30 bg-white/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide">
+              soon
+            </span>
           </button>
           <button
             type="button"
-            className="text-[11px] font-semibold text-purple-400 hover:text-purple-300"
+            disabled
+            aria-disabled="true"
+            title="Coming soon"
+            className="text-[11px] font-semibold text-purple-400 transition disabled:cursor-not-allowed disabled:opacity-60"
           >
             Load more reviews →
+            <span className="ml-1.5 rounded-full border border-purple-500/30 bg-white/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide">
+              soon
+            </span>
           </button>
         </div>
       </div>
