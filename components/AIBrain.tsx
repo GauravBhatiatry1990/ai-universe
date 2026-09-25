@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Sparkles, Send, X } from "lucide-react";
+import { DefaultChatTransport, type UIMessage } from "ai";
+import { useChat } from "@ai-sdk/react";
+import { RotateCcw, Send, Sparkles, StopCircle, X } from "lucide-react";
 import {
   Avatar,
   Badge,
@@ -13,25 +15,25 @@ import {
   TextArea,
 } from "@radix-ui/themes";
 
-type Message = {
-  role: "user" | "assistant";
-  content: string;
-};
-
 const AI_WELCOME =
   "Hi! I'm the AI Brain. Ask me to find the perfect tool for your needs.";
-const MOCK_REPLY =
-  "I recommend checking out Midjourney. It's great for image generation and design work.";
 
-function MessageBubble({ message }: { message: Message }) {
+function messageText(message: UIMessage): string {
+  return message.parts
+    .filter((part) => part.type === "text")
+    .map((part) => part.text)
+    .join("");
+}
+
+function MessageBubble({ message }: { message: UIMessage }) {
   if (message.role === "user") {
     return (
       <Flex justify="end">
         <Text
           size="2"
-          className="max-w-[80%] rounded-xl rounded-br-sm bg-zinc-700/80 px-3 py-2 text-zinc-50"
+          className="max-w-[80%] rounded-xl rounded-br-sm bg-zinc-700/80 px-3 py-2 text-zinc-50 whitespace-pre-wrap"
         >
-          {message.content}
+          {messageText(message)}
         </Text>
       </Flex>
     );
@@ -47,9 +49,9 @@ function MessageBubble({ message }: { message: Message }) {
       />
       <Text
         size="2"
-        className="max-w-[80%] rounded-xl rounded-bl-sm bg-zinc-800 px-3 py-2 text-zinc-200"
+        className="max-w-[80%] rounded-xl rounded-bl-sm bg-zinc-800 px-3 py-2 text-zinc-200 whitespace-pre-wrap"
       >
-        {message.content}
+        {messageText(message)}
       </Text>
     </Flex>
   );
@@ -57,17 +59,18 @@ function MessageBubble({ message }: { message: Message }) {
 
 export default function AIBrain() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: AI_WELCOME },
-  ]);
   const [draft, setDraft] = useState("");
-  const [thinking, setThinking] = useState(false);
+  const { messages, sendMessage, status, error, stop, regenerate } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/brain" }),
+  });
   const viewportRef = useRef<HTMLDivElement>(null);
+
+  const busy = status === "submitted" || status === "streaming";
 
   useEffect(() => {
     const el = viewportRef.current;
     if (el) el.scrollTop = el.scrollHeight;
-  }, [messages, thinking, open]);
+  }, [messages, status, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -80,14 +83,9 @@ export default function AIBrain() {
 
   function handleSend() {
     const text = draft.trim();
-    if (!text || thinking) return;
-    setMessages((prev) => [...prev, { role: "user", content: text }]);
+    if (!text || busy) return;
+    sendMessage({ text });
     setDraft("");
-    setThinking(true);
-    setTimeout(() => {
-      setMessages((prev) => [...prev, { role: "assistant", content: MOCK_REPLY }]);
-      setThinking(false);
-    }, 1000);
   }
 
   return (
@@ -139,10 +137,27 @@ export default function AIBrain() {
                   style={{ height: "100%" }}
                 >
                   <div className="flex flex-col gap-3 pr-2">
-                    {messages.map((message, i) => (
-                      <MessageBubble key={i} message={message} />
+                    {messages.length === 0 && (
+                      <Flex gap="2" align="start">
+                        <Avatar
+                          size="1"
+                          radius="full"
+                          color="gray"
+                          variant="soft"
+                          fallback={<Sparkles size={12} />}
+                        />
+                        <Text
+                          size="2"
+                          className="max-w-[80%] rounded-xl rounded-bl-sm bg-zinc-800 px-3 py-2 text-zinc-200"
+                        >
+                          {AI_WELCOME}
+                        </Text>
+                      </Flex>
+                    )}
+                    {messages.map((message) => (
+                      <MessageBubble key={message.id} message={message} />
                     ))}
-                    {thinking && (
+                    {status === "submitted" && (
                       <Flex gap="2" align="center">
                         <Avatar
                           size="1"
@@ -154,6 +169,21 @@ export default function AIBrain() {
                         <Text size="2" color="gray">
                           Thinking…
                         </Text>
+                      </Flex>
+                    )}
+                    {error && (
+                      <Flex gap="2" align="center" justify="between" className="rounded-xl bg-red-950/40 px-3 py-2">
+                        <Text size="2" color="red" className="flex-1">
+                          Something went wrong.
+                        </Text>
+                        <IconButton
+                          size="2"
+                          variant="soft"
+                          onClick={() => regenerate()}
+                          aria-label="Retry"
+                        >
+                          <RotateCcw size={14} />
+                        </IconButton>
                       </Flex>
                     )}
                   </div>
@@ -174,15 +204,26 @@ export default function AIBrain() {
                   }}
                   className="flex-1"
                 />
-                <IconButton
-                  size="4"
-                  variant="solid"
-                  onClick={handleSend}
-                  disabled={!draft.trim() || thinking}
-                  aria-label="Send message"
-                >
-                  <Send size={16} />
-                </IconButton>
+                {busy ? (
+                  <IconButton
+                    size="4"
+                    variant="soft"
+                    onClick={() => stop()}
+                    aria-label="Stop generating"
+                  >
+                    <StopCircle size={16} />
+                  </IconButton>
+                ) : (
+                  <IconButton
+                    size="4"
+                    variant="solid"
+                    onClick={handleSend}
+                    disabled={!draft.trim()}
+                    aria-label="Send message"
+                  >
+                    <Send size={16} />
+                  </IconButton>
+                )}
               </Flex>
             </Flex>
           </Card>
