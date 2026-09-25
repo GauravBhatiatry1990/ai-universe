@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { upsertReview, deleteReview } from '../lib/reviews-client';
+import { revalidateReviews } from '../lib/review-actions';
 import type { MyReview } from '../lib/reviews';
 
 type Props = { slug: string; myReview: MyReview | null; userId: string };
@@ -56,6 +57,7 @@ export default function ReviewForm({ slug, myReview, userId }: Props) {
       setError(result.message);
       return;
     }
+    await revalidateReviews();
     router.refresh();
   };
 
@@ -70,6 +72,7 @@ export default function ReviewForm({ slug, myReview, userId }: Props) {
       setError(result.message);
       return;
     }
+    await revalidateReviews();
     router.refresh();
   };
 

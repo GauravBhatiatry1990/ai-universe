@@ -8,6 +8,7 @@ import ToolLogo from './ToolLogo';
 import Stars from './Stars';
 import { removeFavorite } from '../lib/favorites-client';
 import { deleteReview } from '../lib/reviews-client';
+import { revalidateReviews } from '../lib/review-actions';
 import { getBrowserClient } from '../lib/supabase/client';
 import { formatRelativeTime } from '../lib/time';
 import type { FavoriteAgent } from '../lib/favorites';
@@ -73,6 +74,7 @@ export default function AccountContent({
       setError(result.message);
       return;
     }
+    await revalidateReviews();
     router.refresh();
   };
 
