@@ -3,6 +3,8 @@
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useState, FormEvent } from "react";
 import Link from "next/link";
+import { AuthProvider } from "./AuthProvider";
+import AccountMenu from "./AccountMenu";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/", icon: "🏠" },
@@ -41,6 +43,7 @@ export default function AppShell({
   }
 
   return (
+    <AuthProvider>
     <div className="min-h-screen flex bg-transparent text-zinc-100">
       {/* Sidebar */}
       <aside className="hidden lg:flex flex-col w-60 shrink-0 border-r border-zinc-800/80 bg-[#0a0a0c]/80 backdrop-blur-xl relative z-20">
@@ -146,6 +149,7 @@ export default function AppShell({
               >
                 🔔
               </button>
+              <AccountMenu />
               <Link
                 href="/submit"
                 className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 text-white text-sm font-semibold px-4 py-2 transition shadow-[0_0_20px_rgba(168,85,247,0.3)]"
@@ -171,5 +175,6 @@ export default function AppShell({
         </div>
       </div>
     </div>
+    </AuthProvider>
   );
 }
