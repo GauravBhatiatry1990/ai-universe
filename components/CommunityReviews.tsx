@@ -1,120 +1,72 @@
-type Review = {
-  id: number;
-  name: string;
-  initials: string;
-  color: string;
-  rating: number;
-  text: string;
-  time: string;
-};
+import Link from 'next/link';
+import { getLatestReviews } from '../lib/reviews';
+import { getAgentMeta } from '../lib/agentLookup';
+import Stars from './Stars';
+import { formatRelativeTime } from '../lib/time';
+import { initialsOf } from '../lib/initials';
 
-const REVIEWS: Review[] = [
-  {
-    id: 1,
-    name: "Rohit S.",
-    initials: "RS",
-    color: "bg-purple-500",
-    rating: 5,
-    text: "ChatGPT is still the best all-rounder. Super helpful for work and learning.",
-    time: "2h ago",
-  },
-  {
-    id: 2,
-    name: "Priya M.",
-    initials: "PM",
-    color: "bg-rose-500",
-    rating: 5,
-    text: "I love Midjourney for creating unique images. The quality is amazing!",
-    time: "5h ago",
-  },
-  {
-    id: 3,
-    name: "Aman K.",
-    initials: "AK",
-    color: "bg-emerald-500",
-    rating: 5,
-    text: "Perplexity is my go-to for research. The sources make a huge difference.",
-    time: "9h ago",
-  },
-];
+export default async function CommunityReviews() {
+  const reviews = await getLatestReviews(3);
 
-function Stars({ count }: { count: number }) {
-  return (
-    <span className="inline-flex gap-0.5 text-xs">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <span
-          key={i}
-          className={i < count ? "text-amber-400" : "text-zinc-700"}
-        >
-          ★
-        </span>
-      ))}
-    </span>
-  );
-}
-
-export default function CommunityReviews() {
   return (
     <section>
-      <div className="flex items-center justify-between mb-5">
+      <div className="mb-5 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-sm">💬</span>
-          <h2 className="text-sm font-bold text-white tracking-wide uppercase">
+          <h2 className="text-sm font-bold uppercase tracking-wide text-white">
             Community Reviews
           </h2>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-white/10 bg-white/[0.03] shadow-sm overflow-hidden">
+      <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-sm">
         <div className="divide-y divide-white/5">
-          {REVIEWS.map((r) => (
-            <div key={r.id} className="flex items-start gap-3 px-5 py-4">
-              <div
-                className={`w-9 h-9 rounded-full ${r.color} text-white text-xs font-bold flex items-center justify-center shrink-0`}
-              >
-                {r.initials}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-3 mb-1 flex-wrap">
-                  <span className="text-sm font-semibold text-white">
-                    {r.name}
-                  </span>
-                  <Stars count={r.rating} />
+          {reviews.length === 0 && (
+            <p className="px-5 py-8 text-center text-sm text-zinc-500">
+              No reviews yet — share your experience by signing in.
+            </p>
+          )}
+          {reviews.map((r) => {
+            const meta = getAgentMeta(r.slug);
+            return (
+              <div key={r.id} className="flex items-start gap-3 px-5 py-4">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-blue-500 text-xs font-bold text-white">
+                  {initialsOf(r.display_name)}
                 </div>
-                <p className="text-xs text-zinc-400 leading-relaxed">{r.text}</p>
+                <div className="min-w-0 flex-1">
+                  <div className="mb-1 flex flex-wrap items-center gap-3">
+                    <span className="text-sm font-semibold text-white">{r.display_name}</span>
+                    <Stars count={r.rating} />
+                    {meta ? (
+                      <Link
+                        href={`/agent/${r.slug}`}
+                        className="text-xs text-purple-400 transition hover:text-purple-300"
+                      >
+                        on {meta.name} →
+                      </Link>
+                    ) : (
+                      <span className="text-xs text-zinc-500">on {r.slug}</span>
+                    )}
+                  </div>
+                  {r.comment && (
+                    <p className="text-xs leading-relaxed text-zinc-400">{r.comment}</p>
+                  )}
+                </div>
+                <span className="shrink-0 text-[11px] text-zinc-500">
+                  {formatRelativeTime(r.created_at)}
+                </span>
               </div>
-              <span className="text-[11px] text-zinc-500 shrink-0">
-                {r.time}
-              </span>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="border-t border-white/10 bg-white/[0.02] px-5 py-3 flex items-center justify-between gap-3 flex-wrap">
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            title="Coming soon"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 text-purple-300 text-[11px] font-semibold px-3 py-1.5 transition disabled:cursor-not-allowed disabled:opacity-60"
+        <div className="border-t border-white/10 bg-white/[0.02] px-5 py-3">
+          <Link
+            href="/login"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm font-semibold text-purple-300 transition hover:bg-purple-500/20"
           >
-            Sign in to write a review
-            <span className="rounded-full border border-purple-500/30 bg-white/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide">
-              soon
-            </span>
-          </button>
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            title="Coming soon"
-            className="text-[11px] font-semibold text-purple-400 transition disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            Load more reviews →
-            <span className="ml-1.5 rounded-full border border-purple-500/30 bg-white/5 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide">
-              soon
-            </span>
-          </button>
+            Sign in to write a review →
+          </Link>
         </div>
       </div>
     </section>
