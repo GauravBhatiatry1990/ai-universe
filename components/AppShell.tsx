@@ -130,13 +130,19 @@ export default function AppShell({
             <div className="ml-auto flex items-center gap-3">
               <button
                 aria-label="Theme"
-                className="hidden sm:flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-800 transition text-sm text-zinc-400"
+                disabled
+                aria-disabled="true"
+                title="Coming soon"
+                className="hidden sm:flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-sm text-zinc-400 transition disabled:cursor-not-allowed disabled:opacity-60"
               >
                 🌙
               </button>
               <button
                 aria-label="Notifications"
-                className="hidden sm:flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-800 transition text-sm text-zinc-400"
+                disabled
+                aria-disabled="true"
+                title="Coming soon"
+                className="hidden sm:flex h-9 w-9 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900 text-sm text-zinc-400 transition disabled:cursor-not-allowed disabled:opacity-60"
               >
                 🔔
               </button>
