@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { getLogoUrl } from '../data/toolDomains';
 import { slugify } from '../lib/slugify';
+import SponsoredBadge from './SponsoredBadge';
 
 type Agent = {
   id: number | string;
@@ -13,6 +14,7 @@ type Agent = {
   category: string;
   pricing: string;
   featured?: boolean;
+  sponsored?: boolean;
   url?: string;
   bestFor?: string;
   features?: string[];
@@ -126,6 +128,11 @@ export default function AgentExplorer({
                     : "bg-[#0a0a0c]/60 backdrop-blur-md border-zinc-800/80 hover:border-purple-500/50")
                 }
               >
+                {agent.sponsored && (
+                  <span className="absolute top-3 right-3">
+                    <SponsoredBadge />
+                  </span>
+                )}
                 <div className="flex items-center gap-2.5 mb-3">
                   {logoUrl && (
                     <img

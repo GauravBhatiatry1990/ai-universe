@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import NewsletterSignup from '../../../components/NewsletterSignup';
 import ToolLogo from '../../../components/ToolLogo';
 import AppShell from '../../../components/AppShell';
+import SponsoredBadge from '../../../components/SponsoredBadge';
 
 type Agent = {
   id: number | string;
@@ -13,6 +14,7 @@ type Agent = {
   category: string;
   pricing: string;
   featured?: boolean;
+  sponsored?: boolean;
   url?: string;
   bestFor?: string;
   features?: string[];
@@ -67,6 +69,7 @@ export default async function AgentPage({
                   {agent.category}
                 </span>
                 <span className="text-sm text-zinc-400">{agent.pricing}</span>
+                {agent.sponsored && <SponsoredBadge />}
                 {agent.featured && (
                   <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-md shadow-orange-500/20">
                     ★ Featured
