@@ -11,6 +11,7 @@ import SponsoredBadge from '../../../components/SponsoredBadge';
 import FavoriteButton from '../../../components/FavoriteButton';
 import { getCurrentUser } from '../../../lib/supabase/auth';
 import { getIsFavorite } from '../../../lib/favorites';
+import { getReviewsForSlug, getToolStats, getMyReview } from '../../../lib/reviews';
 
 type Agent = {
   id: number | string;
@@ -42,9 +43,12 @@ export default async function AgentPage({
   }
 
   const user = await getCurrentUser();
-  const isFavorite = user
-    ? await getIsFavorite(agent.slug, user.id)
-    : false;
+  const [reviews, stats, myReview, isFavorite] = await Promise.all([
+    getReviewsForSlug(agent.slug),
+    getToolStats(agent.slug),
+    user ? getMyReview(agent.slug, user.id) : Promise.resolve(null),
+    user ? getIsFavorite(agent.slug, user.id) : Promise.resolve(false),
+  ]);
 
   const alternatives =
     agent.alternatives
@@ -173,12 +177,13 @@ export default async function AgentPage({
     {
       id: 'reviews',
       label: 'Community Reviews',
-      count: 3,
+      count: stats.review_count,
       content: (
         <AgentReviews
-          name={agent.name}
-          category={agent.category}
           slug={agent.slug}
+          reviews={reviews}
+          stats={stats}
+          myReview={myReview}
         />
       ),
     },
