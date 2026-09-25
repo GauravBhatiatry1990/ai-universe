@@ -104,8 +104,17 @@ export default function FreeVsPaidPage() {
         <p className="text-xs text-zinc-400 leading-relaxed mb-4">
           Answer a few quick questions and we&apos;ll recommend the AI tools that fit your needs.
         </p>
-        <button className="w-full rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white text-xs font-semibold px-4 py-2.5 transition shadow-sm shadow-purple-500/20">
+        <button
+          type="button"
+          disabled
+          aria-disabled="true"
+          title="Coming soon"
+          className="w-full rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white text-xs font-semibold px-4 py-2.5 transition shadow-sm shadow-purple-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+        >
           Take the quiz →
+          <span className="ml-2 rounded-full border border-white/20 bg-white/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide">
+            soon
+          </span>
         </button>
       </div>
     </>
@@ -312,13 +321,10 @@ export default function FreeVsPaidPage() {
             </div>
           </div>
 
-          <Link
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              setActiveIdx((activeIdx + 1) % cases.length);
-            }}
-            className="mt-4 block rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-400/40 transition px-6 py-4 group shadow-sm"
+          <button
+            type="button"
+            onClick={() => setActiveIdx((activeIdx + 1) % cases.length)}
+            className="mt-4 block w-full text-left rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-400/40 transition px-6 py-4 group shadow-sm"
           >
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center text-lg shrink-0">
@@ -341,7 +347,7 @@ export default function FreeVsPaidPage() {
                 </span>
               </div>
             </div>
-          </Link>
+          </button>
         </section>
       </div>
     </AppShell>
