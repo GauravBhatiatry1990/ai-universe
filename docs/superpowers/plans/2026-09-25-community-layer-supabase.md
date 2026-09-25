@@ -10,6 +10,16 @@
 
 **Spec:** `docs/superpowers/specs/2026-09-25-community-layer-supabase-design.md`
 
+## Execution Amendments (source-of-truth change, supersedes the steps below)
+
+Applied during Task 1; recorded in full in the plan's SDD ledger (`.superpowers/sdd/2026-09-25-community-layer-supabase/progress.md`):
+
+1. **Root file is `proxy.ts`, not `middleware.ts`** — Next 16.3.5 deprecates the `middleware` convention and renames it to `proxy.ts` (export named `proxy`; confirmed in `node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/proxy.md`). `config.matcher` is unchanged. Ruling in ledger.
+2. **`@supabase/ssr@0.12.7` removed `createMiddlewareClient`** — `lib/supabase/middleware.ts` instead uses `createServerClient` with a request/response cookie adapter: `getAll()` reads `request.cookies`; `setAll(cookiesToSet, headers)` writes cookies to the rebuilt `supabaseResponse` and applies the cache-control headers; then `auth.getUser()` performs refresh-token rotation. Official Supabase pattern for Next 16 proxy (verified against `@supabase/ssr` `CookieMethodsServer` types). Ruling in ledger.
+3. **`updateSessionCookie` now returns `{ response, user }`** (plan said "returns the response") so root `proxy.ts` can enforce the spec §6.3 `/account` guard with the verified user instead of creating a second client. Ruling in ledger.
+
+Everything else in Tasks 1–6 is implemented exactly as written below.
+
 ## Global Constraints
 
 - **No service-role key.** Only `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY`. Never read `SUPABASE_SERVICE_ROLE_KEY`.
