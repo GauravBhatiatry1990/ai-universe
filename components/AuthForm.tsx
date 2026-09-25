@@ -86,7 +86,10 @@ export default function AuthForm({ mode, next }: Props) {
     }
     setSubmitting(true);
     setError('');
-    const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim());
+    const redirectTo = new URL('/reset-password', window.location.origin).toString();
+    const { error: err } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo,
+    });
     setSubmitting(false);
     if (err) {
       setError(`Reset failed: ${err.message}`);
