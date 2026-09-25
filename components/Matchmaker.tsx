@@ -44,7 +44,7 @@ export default function Matchmaker({ agents }: { agents: MatchAgent[] }) {
 
   return (
     <section className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 md:p-8">
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
           <span className="text-sm">🎯</span>
           <h2 className="text-sm font-bold text-zinc-300 tracking-wide uppercase">
@@ -55,6 +55,10 @@ export default function Matchmaker({ agents }: { agents: MatchAgent[] }) {
           {step === 'results' ? 'Matches' : `Step ${step} of 3`}
         </span>
       </div>
+
+      <p className="text-sm text-zinc-500 mb-5">
+        Answer 3 quick questions to find your best-fit AI tool.
+      </p>
 
       <div className="flex items-center gap-2 mb-6">
         {[1, 2, 3].map((s) => (
